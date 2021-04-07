@@ -4,7 +4,7 @@ package GUI;
 import java.awt.*;
 import javax.swing.*;
 
-public class Scacchiera extends JPanel{
+public class BoardGUI extends JPanel{
 
     public void paint(Graphics g) {
 
@@ -34,7 +34,7 @@ public class Scacchiera extends JPanel{
         JFrame frame = new JFrame();
 
         frame.setSize(600,600);
-        frame.getContentPane().add(new Scacchiera());
+        frame.getContentPane().add(new BoardGUI());
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.lightGray);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
