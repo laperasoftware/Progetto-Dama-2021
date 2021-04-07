@@ -43,12 +43,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Scacchiera">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="intellij" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
@@ -100,8 +100,21 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="173" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617813510148">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="173" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617813510148" />
+    <state x="689" y="320" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1617813507911">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="320" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617813507911" />
+    <state x="740" y="273" key="FileChooserDialogImpl" timestamp="1617813465343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="273" key="FileChooserDialogImpl/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617813465343" />
     <state width="623" height="174" key="GridCell.Tab.0.bottom" timestamp="1617722473325">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
