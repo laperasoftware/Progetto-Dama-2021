@@ -1,6 +1,8 @@
 package GUI;
 
 
+import User.User;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -29,7 +31,7 @@ public class BoardGUI extends JPanel{
         }
     }
 
-    public static void main(String[] args) {
+    public void boardDisplay(){
 
         JFrame frame = new JFrame();
 
@@ -39,7 +41,6 @@ public class BoardGUI extends JPanel{
         frame.setBackground(Color.lightGray);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
 
     }
 }
