@@ -9,7 +9,12 @@ public class User {
      * il nome dell'utente
      */
     private String nome;
-    private boolean colore;
+
+    /*  1 = Bianco
+        0 = Nero
+       */
+
+    private int colore;
 
     public String getNome() {
         return nome;
@@ -19,11 +24,11 @@ public class User {
         this.nome = nome;
     }
 
-    public boolean isColore() {
+    public int getColore() {
         return colore;
     }
 
-    public void setColore(boolean colore) {
+    public void setColore(int colore) {
         this.colore = colore;
     }
 
