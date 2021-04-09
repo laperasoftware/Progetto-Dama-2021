@@ -11,6 +11,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
     User user1 = new User();
     User user2 = new User();
+    boolean logCheck;
 
     public LoginGUI() {
         setTitle("LOGIN");
@@ -124,6 +125,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
 
 
+
         b1.addActionListener(new ActionListener() {
             @Override
 
@@ -133,18 +135,6 @@ public class LoginGUI extends JFrame implements ActionListener {
 
                 user1.setNome(a1.getText());
                 user2.setNome(a2.getText());
-
-
-                if(rb1.isSelected()){
-                    user1.setColore(0);
-                    rw2.setSelected(true);
-                }
-
-                else if(rw1.isSelected()){
-                    user1.setColore(1);
-                    rb2.setSelected(true);
-                }
-                
 
 
                 System.out.println( user1.getNome() + " Colore: ");
@@ -159,22 +149,74 @@ public class LoginGUI extends JFrame implements ActionListener {
 
                 }
 
-                else if(user1.getColore() == user2.getColore()){
-
+                if(rb1.isSelected() && rb2.isSelected()){
                     JOptionPane.showMessageDialog(f,"I due colori sono uguali");
+                    user1.setColore(0);
+                    rw2.setSelected(true);
+                    user2.setColore(1);
+                }
+
+                else if(rw1.isSelected()){
+                    user1.setColore(1);
+                    rb2.setSelected(true);
+                    user2.setColore(0);
+                }
+
+                if(rb2.isSelected()){
+                    JOptionPane.showMessageDialog(f,"I due colori sono uguali");
+                    user1.setColore(0);
+                    rw1.setSelected(true);
+                    user2.setColore(1);
+                }
+
+                else if(rw2.isSelected()){
+                    user1.setColore(1);
+                    rb1.setSelected(true);
+                    user2.setColore(0);
+                }
+
+                if(user1.getColore() == user2.getColore()){
+                    while(user1.getColore() == user2.getColore()){
+
+                        JOptionPane.showMessageDialog(f,"I due colori sono uguali");
+
+                        if(rb1.isSelected()){
+
+                            user1.setColore(0);
+                            rw2.setSelected(true);
+                            user2.setColore(1);
+                        }
+
+                        else if(rw1.isSelected()){
+                            user1.setColore(1);
+                            rb2.setSelected(true);
+                            user2.setColore(0);
+                        }
+                    }
 
                 }
+
 
                 else{
 
+
                     JOptionPane.showMessageDialog(f,"Login completato");
+                    System.out.println( user1.getNome() + " Colore: ");
+                    System.out.println( user1.getColore()+ "\n");
+                    System.out.println( user2.getNome()+ " Colore: ");
+                    System.out.println( user2.getColore()+ "\n");
+                    logCheck = true;
                     dispose();
 
                 }
+
             }
         });
     }
 
+    public boolean check(){
+        return (logCheck);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

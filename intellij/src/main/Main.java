@@ -10,8 +10,15 @@ public class Main {
         User u1 = new User();
         User u2 = new User();
 
-        BoardGUI b = new BoardGUI();
-        b.boardDisplay();
         LoginGUI gui = new LoginGUI();
+        boolean ck;
+
+        ck=gui.check();
+        if(ck==true){
+
+            BoardGUI b = new BoardGUI();
+            b.boardDisplay();
+
+        }
     }
 }
