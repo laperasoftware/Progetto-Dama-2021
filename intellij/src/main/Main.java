@@ -13,7 +13,7 @@ public class Main {
 
         BoardGUI b = new BoardGUI();
         b.boardDisplay();
-        b.setEnabled(false);
+
         LoginGUI gui = new LoginGUI();
     }
 }

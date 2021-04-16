@@ -43,4 +43,5 @@ public class BoardGUI extends JPanel{
         frame.setVisible(true);
 
     }
+
 }
