@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Progetto-Dama-2021">
+    <output-path>$PROJECT_DIR$/out/artifacts/Progetto_Dama_2021</output-path>
+    <root id="root">
+      <element id="archive" name="Progetto_Dama_2021.jar">
+        <element id="module-output" name="Progetto-Dama-2021" />
+      </element>
+    </root>
+  </artifact>
+</component>

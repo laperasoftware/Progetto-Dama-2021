@@ -11,9 +11,12 @@ public class LoginGUI extends JFrame implements ActionListener {
 
     User user1 = new User();
     User user2 = new User();
-    boolean logCheck;
+    boolean logCheck = false;
+
 
     public LoginGUI() {
+
+
         setTitle("LOGIN");
         setBounds(100, 100, 900, 450);
         setVisible(true);
@@ -34,31 +37,31 @@ public class LoginGUI extends JFrame implements ActionListener {
         //////////////////////////////////////////////////////////
 
 
-        JLabel nm = new JLabel("Giocatore 1:");
+        JLabel nm = new JLabel("Nome Giocatore Bianco:");
         nm.setFont(new Font("Tahoma", Font.BOLD, 18));
-        nm.setBounds(200, 80, 180, 29);
+        nm.setBounds(200, 80, 300, 29);
         p.add(nm);
 
-        JLabel nm1 = new JLabel("Giocatore 2:");
+        JLabel nm1 = new JLabel("Nome Giocatore Nero:");
         nm1.setFont(new Font("Tahoma", Font.BOLD, 18));
-        nm1.setBounds(200, 200, 200, 29);
+        nm1.setBounds(200, 200, 300, 29);
         p.add(nm1);
 
         /////////////////////////////////////////////////////////////
 
         JTextField a1 = new JTextField();
-        a1.setBounds(380,80,200,30);
+        a1.setBounds(450,80,200,30);
         p.add(a1);
 
         JTextField a2 = new JTextField();
-        a2.setBounds(380,200,200,30);
+        a2.setBounds(450,200,200,30);
         p.add(a2);
 
 
         /////////////////////////////////////////////////////
 
 
-        JRadioButton rb1 = new JRadioButton();
+       /* JRadioButton rb1 = new JRadioButton();
         rb1.setBounds(750, 65, 29, 29);
         p.add(rb1);
 
@@ -74,7 +77,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         JRadioButton rw2 = new JRadioButton();
         rw2.setBounds(750, 210, 29, 29);
-        p.add(rw2);
+        p.add(rw2);*/
 
         ////////////////////////////////////////////////////
 
@@ -113,7 +116,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         /////////////////////////////////////////////////////////////////////
 
-        ButtonGroup g1 = new ButtonGroup();
+        /*ButtonGroup g1 = new ButtonGroup();
 
         ButtonGroup g2 = new ButtonGroup();
 
@@ -121,9 +124,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         g1.add(rw1);
 
         g2.add(rb2);
-        g2.add(rw2);
-
-
+        g2.add(rw2);*/
 
 
         b1.addActionListener(new ActionListener() {
@@ -149,56 +150,10 @@ public class LoginGUI extends JFrame implements ActionListener {
 
                 }
 
-                if(rb1.isSelected() && rb2.isSelected()){
-                    JOptionPane.showMessageDialog(f,"I due colori sono uguali");
-                    user1.setColore(0);
-                    rw2.setSelected(true);
-                    user2.setColore(1);
-                }
-
-                else if(rw1.isSelected()){
-                    user1.setColore(1);
-                    rb2.setSelected(true);
-                    user2.setColore(0);
-                }
-
-                if(rb2.isSelected()){
-                    JOptionPane.showMessageDialog(f,"I due colori sono uguali");
-                    user1.setColore(0);
-                    rw1.setSelected(true);
-                    user2.setColore(1);
-                }
-
-                else if(rw2.isSelected()){
-                    user1.setColore(1);
-                    rb1.setSelected(true);
-                    user2.setColore(0);
-                }
-
-                if(user1.getColore() == user2.getColore()){
-                    while(user1.getColore() == user2.getColore()){
-
-                        JOptionPane.showMessageDialog(f,"I due colori sono uguali");
-
-                        if(rb1.isSelected()){
-
-                            user1.setColore(0);
-                            rw2.setSelected(true);
-                            user2.setColore(1);
-                        }
-
-                        else if(rw1.isSelected()){
-                            user1.setColore(1);
-                            rb2.setSelected(true);
-                            user2.setColore(0);
-                        }
-                    }
-
-                }
-
-
                 else{
 
+                    user1.setColore(1);
+                    user2.setColore(0);
 
                     JOptionPane.showMessageDialog(f,"Login completato");
                     System.out.println( user1.getNome() + " Colore: ");
@@ -206,16 +161,17 @@ public class LoginGUI extends JFrame implements ActionListener {
                     System.out.println( user2.getNome()+ " Colore: ");
                     System.out.println( user2.getColore()+ "\n");
                     logCheck = true;
-                    dispose();
+                    System.out.println( logCheck + "gs");
 
                 }
 
             }
         });
     }
+    public boolean getLogCheck(boolean a){
+        a = logCheck;
 
-    public boolean check(){
-        return (logCheck);
+        return a;
     }
 
     @Override
