@@ -161,7 +161,7 @@ public class LoginGUI extends JFrame implements ActionListener {
                     System.out.println( user2.getNome()+ " Colore: ");
                     System.out.println( user2.getColore()+ "\n");
                     logCheck = true;
-                    System.out.println( logCheck + "gs");
+
                     dispose();
                 }
 
