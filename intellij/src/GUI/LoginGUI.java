@@ -82,7 +82,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         ////////////////////////////////////////////////////
 
 
-        JLabel lb1 = new JLabel("Nero");
+        /*JLabel lb1 = new JLabel("Nero");
         lb1.setFont(new Font("Tahoma", Font.BOLD, 14));
         lb1.setBounds(795, 65, 180, 29);
         p.add(lb1);
@@ -116,7 +116,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         /////////////////////////////////////////////////////////////////////
 
-        /*ButtonGroup g1 = new ButtonGroup();
+        ButtonGroup g1 = new ButtonGroup();
 
         ButtonGroup g2 = new ButtonGroup();
 
