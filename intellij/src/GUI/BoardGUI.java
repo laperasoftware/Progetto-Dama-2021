@@ -102,12 +102,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
             }
         }
-///////////////////////////////////////////////////////////////////////////////////////
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                scacchiera.add(pulsanti[i][j]);
-            }
-        }
+//////////////////////////////////////////////////////////////////////////////////////
 
         for (int i = 5; i < 8; i++) {
             if(i%2 == 0){
