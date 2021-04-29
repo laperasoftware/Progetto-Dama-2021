@@ -37,7 +37,6 @@ public class BoardGUI extends JPanel implements ActionListener {
             for (int j = 0; j < 8; j++) {
                 pulsanti[i][j] = new JButton();
                 pulsanti[i][j].addActionListener(this);
-                frame.getContentPane().add(pulsanti[i][j]);
 
             }
 
@@ -82,6 +81,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             }
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
         for (int i = 0; i < 3; i++) {
             if(i%2 == 0){
                 for (int j = 0; j < 8; j++) {
@@ -102,12 +102,14 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
             }
         }
+
+
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                scacchiera.add(pulsanti[i][j]);
-            }
-        }
+
+
 
         for (int i = 5; i < 8; i++) {
             if(i%2 == 0){
