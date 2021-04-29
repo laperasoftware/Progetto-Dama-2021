@@ -12,6 +12,7 @@ public class Main {
         User u2 = new User();
 
         BoardGUI b = new BoardGUI();
+
         b.boardDisplay();
 
         LoginGUI gui = new LoginGUI();

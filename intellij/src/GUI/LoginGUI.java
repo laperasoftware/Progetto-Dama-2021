@@ -58,29 +58,6 @@ public class LoginGUI extends JFrame implements ActionListener {
         p.add(a2);
 
 
-        /////////////////////////////////////////////////////
-
-
-       /* JRadioButton rb1 = new JRadioButton();
-        rb1.setBounds(750, 65, 29, 29);
-        p.add(rb1);
-
-        JRadioButton rw1 = new JRadioButton();
-        rw1.setBounds(750, 90, 29, 29);
-        p.add(rw1);
-
-
-
-        JRadioButton rb2 = new JRadioButton();
-        rb2.setBounds(750, 185, 29, 29);
-        p.add(rb2);
-
-        JRadioButton rw2 = new JRadioButton();
-        rw2.setBounds(750, 210, 29, 29);
-        p.add(rw2);*/
-
-
-
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -130,6 +107,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         return a;
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
