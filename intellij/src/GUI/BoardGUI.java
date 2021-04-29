@@ -43,6 +43,8 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
 
 
+
+
         for (int i = 0; i < 8 ; i++) {
             int j;
 
@@ -140,6 +142,9 @@ public class BoardGUI extends JPanel implements ActionListener {
         frame.add(scacchiera);
 
     }
+
+
+
 
 
 
