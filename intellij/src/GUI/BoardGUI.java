@@ -13,7 +13,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
     private JPanel scacchiera = new JPanel();
-    private JButton pulsanti[] = new JButton[64];
+    private JButton pulsanti[][] = new JButton[8][8];
     private JFrame frame = new JFrame();
 
 
@@ -33,24 +33,29 @@ public class BoardGUI extends JPanel implements ActionListener {
 
         scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
 
-        for (int i = 0; i < 64 ; i++) {
-            pulsanti[i] = new JButton();
-            pulsanti[i].addActionListener(this);
+        for (int i = 0; i < 8 ; i++) {
+            for (int j = 0; j < 8; j++) {
+                pulsanti[i][j] = new JButton();
+                pulsanti[i][j].addActionListener(this);
+                frame.getContentPane().add(pulsanti[i][j]);
+
+            }
+
         }
 
 
-        for (int i = 0; i < 64 ; i++) {
+        for (int i = 0; i < 8 ; i++) {
             int j;
 
                 if(i%2 == 0){
-                    for (j = 0; j < 64; j++) {
+                    for (j = 0; j < 8; j++) {
 
                         if(j%2 == 0){
 
-                            pulsanti[j].setBackground(Color.BLACK);
+                            pulsanti[i][j].setBackground(Color.BLACK);
                         }
                         else{
-                            pulsanti[j].setBackground(Color.WHITE);
+                            pulsanti[i][j].setBackground(Color.WHITE);
 
                         }
                     }
@@ -58,26 +63,72 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
 
                 else {
-                    for (j = 0; j < 64; j++) {
+                    for (j = 0; j < 8; j++) {
 
                         if(j%2 == 0){
 
-                            pulsanti[j].setBackground(Color.WHITE);
+                            pulsanti[i][j].setBackground(Color.WHITE);
                         }
                         else{
-                            pulsanti[j].setBackground(Color.BLACK);
+                            pulsanti[i][j].setBackground(Color.BLACK);
 
                         }
                     }
                 }
+            }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                scacchiera.add(pulsanti[i][j]);
+            }
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////
+        for (int i = 0; i < 3; i++) {
+            if(i%2 == 0){
+                for (int j = 0; j < 8; j++) {
+                    if(j%2 == 0){
 
+                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
+                    }
 
-
-
-            scacchiera.add(pulsanti[i]);
-
+                }
             }
 
+            else{
+                for (int j = 0; j < 8; j++) {
+                    if(j%2 != 0){
+
+                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
+                    }
+                }
+            }
+        }
+///////////////////////////////////////////////////////////////////////////////////////
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                scacchiera.add(pulsanti[i][j]);
+            }
+        }
+
+        for (int i = 5; i < 8; i++) {
+            if(i%2 == 0){
+                for (int j = 0; j < 8; j++) {
+                    if(j%2 == 0){
+
+                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
+                    }
+
+                }
+            }
+
+            else{
+                for (int j = 0; j < 8; j++) {
+                    if(j%2 != 0){
+
+                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
+                    }
+                }
+            }
+        }
         
 
         scacchiera.setBounds(100, 100, 100, 100);
