@@ -79,52 +79,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         rw2.setBounds(750, 210, 29, 29);
         p.add(rw2);*/
 
-        ////////////////////////////////////////////////////
 
-
-        /*JLabel lb1 = new JLabel("Nero");
-        lb1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lb1.setBounds(795, 65, 180, 29);
-        p.add(lb1);
-
-        JLabel lw1 = new JLabel("Bianco");
-        lw1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lw1.setBounds(795, 90, 200, 29);
-        p.add(lw1);
-
-        JLabel lb2 = new JLabel("Nero");
-        lb2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lb2.setBounds(795, 185, 185, 29);
-        p.add(lb2);
-
-        JLabel lw2 = new JLabel("Bianco");
-        lw2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lw2.setBounds(795, 210, 210, 29);
-        p.add(lw2);
-
-        //////////////////////////////////////////////////////////
-
-        JLabel c1 = new JLabel("Colore 1:");
-        c1.setFont(new Font("Tahoma", Font.BOLD, 16));
-        c1.setBounds(650, 80, 210, 29);
-        p.add(c1);
-
-        JLabel c2 = new JLabel("Colore 2:");
-        c2.setFont(new Font("Tahoma", Font.BOLD, 16));
-        c2.setBounds(650, 200, 210, 29);
-        p.add(c2);
-
-        /////////////////////////////////////////////////////////////////////
-
-        ButtonGroup g1 = new ButtonGroup();
-
-        ButtonGroup g2 = new ButtonGroup();
-
-        g1.add(rb1);
-        g1.add(rw1);
-
-        g2.add(rb2);
-        g2.add(rw2);*/
 
 
         b1.addActionListener(new ActionListener() {
@@ -136,6 +91,8 @@ public class LoginGUI extends JFrame implements ActionListener {
 
                 user1.setNome(a1.getText());
                 user2.setNome(a2.getText());
+
+
 
 
                 System.out.println( user1.getNome() + " Colore: ");
