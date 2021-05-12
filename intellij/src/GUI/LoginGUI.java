@@ -14,6 +14,8 @@ public class LoginGUI extends JFrame implements ActionListener {
     boolean logCheck = false;
 
 
+
+
     public LoginGUI() {
 
 
@@ -21,6 +23,8 @@ public class LoginGUI extends JFrame implements ActionListener {
         setBounds(100, 100, 900, 450);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
 
 
         Container c=getContentPane();
@@ -68,7 +72,6 @@ public class LoginGUI extends JFrame implements ActionListener {
 
                 user1.setNome(a1.getText());
                 user2.setNome(a2.getText());
-
 
 
 
