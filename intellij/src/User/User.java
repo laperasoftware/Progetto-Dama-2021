@@ -1,4 +1,4 @@
-package User;
+package user;
 
 /**
  * Rappresenta un utente del gioco

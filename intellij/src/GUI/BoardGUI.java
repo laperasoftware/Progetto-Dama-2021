@@ -15,144 +15,35 @@ public class BoardGUI extends JPanel implements ActionListener {
     private JFrame frame = new JFrame();
 
 
-
     public void boardDisplay(){
 
-        JFrame frame = new JFrame();
+        setBoard();
 
+    }
 
-        frame.setSize(600,600);
-       // frame.getContentPane().add(new BoardGUI());
-        frame.setLocationRelativeTo(null);
-        frame.setBackground(Color.lightGray);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+private void setBoard(){
 
-
-
-
-        scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
-
-        for (int i = 0; i < 8 ; i++) {
-            for (int j = 0; j < 8; j++) {
-                pulsanti[i][j] = new JButton();
-                pulsanti[i][j].addActionListener(this);
-                frame.getContentPane().add(pulsanti[i][j]);
-                posizioni[i][j] = '-';
-
-            }
-
-        }
+    frame.setSize(600,600);
+    frame.setLocationRelativeTo(null);
+    frame.setBackground(Color.lightGray);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
 
 
 
 
-        for (int i = 0; i < 8 ; i++) {
-            int j;
+    scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
 
-                if(i%2 == 0){
-                    for (j = 0; j < 8; j++) {
+    for (int i = 0; i < 8 ; i++) {
+        for (int j = 0; j < 8; j++) {
 
-                        if(j%2 == 0){
+            pulsanti[i][j] = new JButton();
 
-                            pulsanti[i][j].setBackground(Color.BLACK);
+            pulsanti[i][j].addActionListener(this);
 
-                        }
-                        else{
-                            pulsanti[i][j].setBackground(Color.WHITE);
+            frame.getContentPane().add(pulsanti[i][j]);
 
-                        }
-                    }
-
-                }
-
-                else {
-                    for (j = 0; j < 8; j++) {
-
-                        if(j%2 == 0){
-
-                            pulsanti[i][j].setBackground(Color.WHITE);
-
-                        }
-                        else{
-                            pulsanti[i][j].setBackground(Color.BLACK);
-
-                        }
-                    }
-                }
-            }
-        for (int i = 0; i < 8; i++) {
-
-            for (int j = 0; j < 8; j++) {
-                scacchiera.add(pulsanti[i][j]);
-
-            }
-        }
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-        for (int i = 0; i < 3; i++) {
-            if(i%2 == 0){
-                for (int j = 0; j < 8; j++) {
-                    if(j%2 == 0){
-
-                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                        posizioni [i][j] = 'b';
-                    }
-
-                }
-            }
-
-            else{
-                for (int j = 0; j < 8; j++) {
-                    if(j%2 != 0){
-
-                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                        posizioni [i][j] = 'b';
-                    }
-                }
-            }
-        }
-//////////////////////////////////////////////////////////////////////////////////////
-
-        for (int i = 5; i < 8; i++) {
-            if(i%2 == 0){
-                for (int j = 0; j < 8; j++) {
-                    if(j%2 == 0){
-
-                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
-                        posizioni [i][j] = 'w';
-                    }
-
-                }
-            }
-
-            else{
-                for (int j = 0; j < 8; j++) {
-                    if(j%2 != 0){
-
-                        pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
-                        posizioni [i][j] = 'w';
-                    }
-                }
-            }
-        }
-        
-
-        scacchiera.setBounds(100, 100, 100, 100);
-
-        frame.add(scacchiera, BorderLayout.CENTER);
-
-        frame.add(scacchiera);
-
-        for (int i = 0; i < 8; i++) {
-
-            for (int j = 0; j < 8; j++) {
-
-                System.out.print(posizioni[i][j] + " ");
-            }
-
-            System.out.println();
-
+            posizioni[i][j] = '-';
 
         }
 
@@ -161,13 +52,135 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
 
+    for (int i = 0; i < 8 ; i++) {
+        int j;
 
+        if(i%2 == 0){
+            for (j = 0; j < 8; j++) {
+
+                if(j%2 == 0){
+
+                    pulsanti[i][j].setBackground(Color.BLACK);
+
+                }
+                else{
+                    pulsanti[i][j].setBackground(Color.WHITE);
+
+                }
+            }
+
+        }
+
+        else {
+            for (j = 0; j < 8; j++) {
+
+                if(j%2 == 0){
+
+                    pulsanti[i][j].setBackground(Color.WHITE);
+
+                }
+                else{
+                    pulsanti[i][j].setBackground(Color.BLACK);
+
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < 8; i++) {
+
+        for (int j = 0; j < 8; j++) {
+            scacchiera.add(pulsanti[i][j]);
+
+        }
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+    for (int i = 0; i < 3; i++) {
+        if(i%2 == 0){
+            for (int j = 0; j < 8; j++) {
+                if(j%2 == 0){
+                    posizioni [i][j] = 'b';
+                }
+
+            }
+        }
+
+        else{
+            for (int j = 0; j < 8; j++) {
+                if(j%2 != 0){
+                    posizioni [i][j] = 'b';
+                }
+            }
+        }
+    }
+//////////////////////////////////////////////////////////////////////////////////////
+
+    for (int i = 5; i < 8; i++) {
+        if(i%2 == 0){
+            for (int j = 0; j < 8; j++) {
+                if(j%2 == 0){
+                    posizioni [i][j] = 'w';
+                }
+
+            }
+        }
+
+        else{
+            for (int j = 0; j < 8; j++) {
+                if(j%2 != 0){
+                    posizioni [i][j] = 'w';
+                }
+            }
+        }
+    }
+
+
+    scacchiera.setBounds(100, 100, 100, 100);
+
+    frame.add(scacchiera, BorderLayout.CENTER);
+
+    frame.add(scacchiera);
+
+    for (int i = 0; i < 8; i++) {
+
+        for (int j = 0; j < 8; j++) {
+            if(posizioni[i][j] == 'b'){
+                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
+            }
+
+            else if(posizioni[i][j] == 'w'){
+                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
+            }
+            System.out.print(posizioni[i][j] + " ");
+        }
+
+        System.out.println();
+
+    }
+}
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        boolean primo = false;
+        boolean secondo = false;
+        int aux1 = 0;
+        int aux2 = 0;
 
-
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(e.getSource() == pulsanti[i][j] && primo == false){
+                    if(pulsanti[i][j] == pulsanti[i+1][j]){
+                        System.out.println("CIao");
+                    }
+                    aux1 = i;
+                    aux2 = j;
+                    primo = true;
+                }
+            }
+        }
 
     }
 }
