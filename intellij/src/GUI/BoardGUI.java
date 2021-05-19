@@ -18,7 +18,7 @@ public class BoardGUI extends JPanel implements ActionListener {
     public void boardDisplay(){
 
         setBoard();
-
+        boardUpdate();
     }
 
 private void setBoard(){
@@ -142,6 +142,10 @@ private void setBoard(){
 
     frame.add(scacchiera);
 
+
+}
+
+private void boardUpdate(){
     for (int i = 0; i < 8; i++) {
 
         for (int j = 0; j < 8; j++) {
@@ -160,6 +164,15 @@ private void setBoard(){
     }
 }
 
+private void firstMove(){
+
+}
+
+private void secondMove(int a, int b,int c, int d){
+        pulsanti[a][b].setBackground(Color.BLACK);
+
+        pulsanti[c][d].setIcon(new ImageIcon("IMG/ckB.png"));
+}
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -171,13 +184,17 @@ private void setBoard(){
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if(e.getSource() == pulsanti[i][j] && primo == false){
-                    if(pulsanti[i][j] == pulsanti[i+1][j]){
-                        System.out.println("CIao");
-                    }
+                if(e.getSource() == pulsanti[i][j] && primo == false && secondo == false){
+
                     aux1 = i;
                     aux2 = j;
                     primo = true;
+                    pulsanti[i][j].setEnabled(false);
+                }
+
+                else if(secondo == false && primo == true){
+                    secondMove(aux1,aux2, i,j-1);
+                    secondo = true;
                 }
             }
         }

@@ -90,13 +90,9 @@ private void setLogGUI(){
 
         if(logCheck == true){
             dispose();
-            logCompleto();
+
         }
 
     }
 
-    public boolean logCompleto(){
-        boolean complete = logCheck;
-        return  complete;
-    }
 }

@@ -13,9 +13,8 @@ public class Main {
         LoginGUI gui = new LoginGUI();
 
 
-        if(== true) {
-            b.boardDisplay();
-        }
+
+        b.boardDisplay();
 
     }
 }
