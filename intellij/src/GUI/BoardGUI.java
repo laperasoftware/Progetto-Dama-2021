@@ -65,7 +65,7 @@ private void setBoard(){
                 }
                 else{
                     pulsanti[i][j].setBackground(Color.WHITE);
-
+                    pulsanti[i][j].setEnabled(false);
                 }
             }
 
@@ -77,7 +77,7 @@ private void setBoard(){
                 if(j%2 == 0){
 
                     pulsanti[i][j].setBackground(Color.WHITE);
-
+                    pulsanti[i][j].setEnabled(false);
                 }
                 else{
                     pulsanti[i][j].setBackground(Color.BLACK);
@@ -121,6 +121,7 @@ private void setBoard(){
             for (int j = 0; j < 8; j++) {
                 if(j%2 == 0){
                     posizioni [i][j] = 'w';
+
                 }
 
             }
@@ -155,6 +156,7 @@ private void boardUpdate(){
 
             else if(posizioni[i][j] == 'w'){
                 pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
+
             }
             System.out.print(posizioni[i][j] + " ");
         }
@@ -169,9 +171,11 @@ private void firstMove(){
 }
 
 private void secondMove(int a, int b,int c, int d){
+
         pulsanti[a][b].setBackground(Color.BLACK);
 
-        pulsanti[c][d].setIcon(new ImageIcon("IMG/ckB.png"));
+            //pulsanti[c][d].setIcon(new ImageIcon("IMG/ckB.png"));
+
 }
 
     @Override
@@ -192,8 +196,10 @@ private void secondMove(int a, int b,int c, int d){
                     pulsanti[i][j].setEnabled(false);
                 }
 
-                else if(secondo == false && primo == true){
+                else if(e.getSource() != pulsanti[aux1][aux2] && secondo == false && primo == true){
                     secondMove(aux1,aux2, i,j-1);
+                    System.out.println("negro");
+                    pulsanti[aux1][aux2].setEnabled(true);
                     secondo = true;
                 }
             }
