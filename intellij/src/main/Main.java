@@ -12,8 +12,6 @@ public class Main {
 
         LoginGUI gui = new LoginGUI();
 
-
-
         b.boardDisplay();
 
     }

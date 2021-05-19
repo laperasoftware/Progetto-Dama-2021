@@ -15,12 +15,17 @@ public class BoardGUI extends JPanel implements ActionListener {
     private JFrame frame = new JFrame();
     boolean primo = false;
     boolean secondo = false;
+    int aux1;
+    int aux2;
+    int cont = 1;
+
 
 
     public void boardDisplay() {
 
         setBoard();
         boardUpdate();
+
     }
 
     private void setBoard() {
@@ -168,79 +173,95 @@ public class BoardGUI extends JPanel implements ActionListener {
     private void secondMoveWhite(int a, int b) {
 
         pulsanti[a][b].setIcon(new ImageIcon("IMG/ckB.png"));
-
-
     }
 
-    private void turnoG1() {
+    private void turnoG1(ActionEvent e){
 
+        JButton source = (JButton) e.getSource();
+        aux1 = 0;
+        aux2 = 0;
+
+
+        for (int i = 0; i < 8; i++) {
+
+            for (int j = 0; j < 8; j++) {
+
+                if (source == pulsanti[i][j]) {
+
+
+                    if (primo == false && secondo == false) {
+
+                        aux1 = i;
+                        aux2 = j;
+                        primo = true;
+                        pulsanti[i][j].setIcon(null);
+
+                    }
+                    else if (primo == true) {
+
+                        secondMoveBlack(i, j);
+                        secondo = true;
+                    }
+
+
+                }
+
+            }
+
+            if (primo == true && secondo == true) {
+                resetBool();
+            }
+        }
+    }
+
+    private void turnoG2(ActionEvent e){
+
+        JButton source = (JButton) e.getSource();
+        aux1 = 0;
+        aux2 = 0;
+
+
+        for (int i = 0; i < 8; i++) {
+
+            for (int j = 0; j < 8; j++) {
+
+                if (source == pulsanti[i][j]) {
+
+
+                    if (primo == false && secondo == false) {
+
+                        aux1 = i;
+                        aux2 = j;
+                        primo = true;
+                        pulsanti[i][j].setIcon(null);
+
+                    }
+                    else if (primo == true) {
+
+                        secondMoveWhite(i, j);
+                        secondo = true;
+                    }
+
+
+                }
+
+            }
+
+            if (primo == true && secondo == true) {
+                resetBool();
+            }
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        turnoG1(e);
 
-        int turno = 0;
-
-        int aux1;
-        int aux2;
-
-
-        JButton source = (JButton) e.getSource();
-
-
-
-
-
-                aux1 = 0;
-                aux2 = 0;
-
-                for (int i = 0; i < 8; i++) {
-
-                    for (int j = 0; j < 8; j++) {
-
-                        if (source == pulsanti[i][j]) {
-
-
-                            if (primo == false && secondo == false) {
-
-                                aux1 = i;
-                                aux2 = j;
-                                primo = true;
-                                pulsanti[i][j].setIcon(null);
-
-                            } else if (primo == true) {
-
-                                if(turno%2 != 0){
-
-                                    secondMoveBlack(i, j);
-
-
-                                }
-
-                                if(turno%2 == 0){
-
-                                    secondMoveWhite(i, j);
-
-
-                                }
-
-                                secondo = true;
-                            }
-
-                        }
-
-                        if (primo == true && secondo == true) {
-                            resetBool();
-                        }
-
-
-                    }
-
-                    turno++;
-
-                }
 
     }
+
 }
+
+
 
