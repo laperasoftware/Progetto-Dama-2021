@@ -168,9 +168,6 @@ private void boardUpdate(){
     }
 }
 
-private void firstMove(){
-
-}
 
 private void  resetBool(){
         primo = false;
@@ -179,11 +176,7 @@ private void  resetBool(){
 
 private void secondMoveBlack(int a, int b){
 
-       // pulsanti[a][b].setIcon(new ImageIcon( "IMG/ckW.png"));
-    pulsanti[a][b].setIcon(null);
-        pulsanti[a][b].setBackground(Color.GREEN);
-
-
+        pulsanti[a][b].setIcon(new ImageIcon( "IMG/ckW.png"));
 }
 
     private void secondMoveWhite(int a, int b){
@@ -194,15 +187,18 @@ private void secondMoveBlack(int a, int b){
 
     }
 
+private void turnoG1(){
+
+}
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
 
         int aux1 = 0;
         int aux2 = 0;
 
-       // for (int i = 0; i < 8; i++) {
-           // for (int j = 0; j < 8; j++) {
+
                 JButton source = (JButton) e.getSource();
 
                 ///////////////////////////////////
@@ -211,6 +207,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 0;
                         aux2 = 0;
                         primo = true;
+                        pulsanti[0][0].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -225,6 +222,7 @@ private void secondMoveBlack(int a, int b){
                         aux2 = 2;
 
                         primo = true;
+                        pulsanti[0][2].setIcon(null);
 
                     }
                     else if(primo == true){
@@ -237,6 +235,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 0;
                         aux2 = 4;
                         primo = true;
+                        pulsanti[0][4].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -249,6 +248,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 0;
                         aux2 = 6;
                         primo = true;
+                        pulsanti[0][6].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -262,6 +262,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 1;
                         aux2 = 1;
                         primo = true;
+                        pulsanti[1][1].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -274,6 +275,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 1;
                         aux2 = 3;
                         primo = true;
+                        pulsanti[1][3].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -286,6 +288,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 1;
                         aux2 = 5;
                         primo = true;
+                        pulsanti[1][5].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -298,6 +301,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 1;
                         aux2 = 7;
                         primo = true;
+                        pulsanti[1][7].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -311,6 +315,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 2;
                         aux2 = 0;
                         primo = true;
+                        pulsanti[2][0].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -323,6 +328,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 2;
                         aux2 = 2;
                         primo = true;
+                        pulsanti[2][2].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -335,6 +341,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 2;
                         aux2 = 4;
                         primo = true;
+                        pulsanti[2][4].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -347,6 +354,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 2;
                         aux2 = 6;
                         primo = true;
+                        pulsanti[2][6].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -361,6 +369,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 3;
                         aux2 = 1;
                         primo = true;
+                        pulsanti[3][1].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -373,6 +382,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 3;
                         aux2 = 3;
                         primo = true;
+                        pulsanti[3][3].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -385,6 +395,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 3;
                         aux2 = 5;
                         primo = true;
+                        pulsanti[3][5].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -397,6 +408,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 3;
                         aux2 = 7;
                         primo = true;
+                        pulsanti[3][7].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -410,6 +422,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 4;
                         aux2 = 0;
                         primo = true;
+                        pulsanti[4][0].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -422,6 +435,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 4;
                         aux2 = 2;
                         primo = true;
+                        pulsanti[4][2].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -434,6 +448,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 4;
                         aux2 = 4;
                         primo = true;
+                        pulsanti[4][4].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -446,6 +461,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 4;
                         aux2 = 6;
                         primo = true;
+                        pulsanti[4][6].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -460,6 +476,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 5;
                         aux2 = 1;
                         primo = true;
+                        pulsanti[5][1].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -472,6 +489,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 5;
                         aux2 = 3;
                         primo = true;
+                        pulsanti[5][3].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -484,6 +502,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 5;
                         aux2 = 5;
                         primo = true;
+                        pulsanti[5][5].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -496,6 +515,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 5;
                         aux2 = 7;
                         primo = true;
+                        pulsanti[5][7].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -509,6 +529,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 6;
                         aux2 = 0;
                         primo = true;
+                        pulsanti[6][0].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -521,6 +542,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 6;
                         aux2 = 2;
                         primo = true;
+                        pulsanti[6][2].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -533,6 +555,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 6;
                         aux2 = 4;
                         primo = true;
+                        pulsanti[6][4].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -545,6 +568,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 6;
                         aux2 = 6;
                         primo = true;
+                        pulsanti[6][6].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -559,6 +583,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 7;
                         aux2 = 1;
                         primo = true;
+                        pulsanti[7][1].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -571,6 +596,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 7;
                         aux2 = 3;
                         primo = true;
+                        pulsanti[7][3].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -583,6 +609,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 7;
                         aux2 = 5;
                         primo = true;
+                        pulsanti[7][5].setIcon(null);
                     }
 
                     else if(primo == true){
@@ -595,6 +622,7 @@ private void secondMoveBlack(int a, int b){
                         aux1 = 7;
                         aux2 = 7;
                         primo = true;
+                        pulsanti[7][7].setIcon(null);
                     }
 
                     else if(primo == true){
