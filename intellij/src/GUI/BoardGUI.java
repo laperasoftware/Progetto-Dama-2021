@@ -17,7 +17,6 @@ public class BoardGUI extends JPanel implements ActionListener {
     boolean secondo = false;
     int aux1;
     int aux2;
-    int cont = 1;
 
 
 

@@ -1,18 +1,10 @@
 package user;
 
-/**
- * Rappresenta un utente del gioco
- */
 public class User {
 
-    /**
-     * il nome dell'utente
-     */
     private String nome;
 
-    /*  1 = Bianco
-        0 = Nero
-       */
+
 
     private int colore;
 
