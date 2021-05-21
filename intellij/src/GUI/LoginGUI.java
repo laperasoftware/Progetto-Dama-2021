@@ -1,98 +1,124 @@
 package GUI;
 
-import user.User;
 
+import java.io.*;
+import java.util.*;
+import java.awt.Toolkit.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class LoginGUI extends JFrame implements ActionListener {
 
-    private User user1 = new User();
-    private User user2 = new User();
-    public boolean logCheck;
+    private JFrame frame = new JFrame();
+    private JButton b1 = new JButton();
     private JPanel p = new JPanel();
-    private JButton b1= new JButton("Registrazione dati");
-    private JLabel nm = new JLabel("Nome Giocatore Bianco:");
-    private JLabel nm1 = new JLabel("Nome Giocatore Nero:");
-    private JTextField a1 = new JTextField();
-    private JTextField a2 = new JTextField();
 
-    public LoginGUI() {
+    private JLabel lb1 = new JLabel("DAMA");
+    private JLabel lb2 = new JLabel("Alessandro Orlando");
+    private JLabel lb3 = new JLabel("Massimiliano Lisi");
 
-            setLogGUI();
+
+    private Icon icon = new ImageIcon("entra.png");
+
+
+
+    private JButton enter = new JButton();
+
+
+    public LoginGUI(){
+
+        super("LogIn");
+
+        setFrame();
+        setPanel();
+        setLabel();
+        setButton();
+
+
     }
 
-private void setLogGUI(){
-
-    setTitle("LOGIN");
-    setBounds(100, 100, 900, 450);
-    setVisible(true);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
+    private void setFrame(){
 
-    Container c=getContentPane();
-    c.setLayout(new BorderLayout(5, 5));
-    p.setLayout(null);
-    c.add(p, BorderLayout.CENTER);
+        frame.setSize(1650,1080);
+        frame.setLocationRelativeTo(null);
 
-    b1.setBounds(380,300,200,30);
-    p.add(b1);
+        frame.setBackground(Color.WHITE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setResizable(false);
 
-    //////////////////////////////////////////////////////////
+    }
 
+    private void setPanel(){
 
-    nm.setFont(new Font("Tahoma", Font.BOLD, 18));
-    nm.setBounds(200, 80, 300, 29);
-    p.add(nm);
+        frame.add(p);
 
-    nm1.setFont(new Font("Tahoma", Font.BOLD, 18));
-    nm1.setBounds(200, 200, 300, 29);
-    p.add(nm1);
-
-    /////////////////////////////////////////////////////////////
-
-    a1.setBounds(450,80,200,30);
-    p.add(a1);
-
-    a2.setBounds(450,200,200,30);
-    p.add(a2);
+        p.setLayout(null);
 
 
+    }
 
-    b1.addActionListener(this);
-}
+
+    private void setLabel(){
+
+        lb1.setBounds(560,90,800,250);
+        lb1.setFont(new Font("Stencil", Font.BOLD, 96));
+
+
+        lb2.setBounds(1010, 421, 842,262);
+        lb2.setFont(new Font("Stencil", Font.BOLD, 26));
+
+
+        lb3.setBounds(1010, 461, 842,262);
+        lb3.setFont(new Font("Stencil", Font.BOLD, 26));
+
+
+        p.add(lb1);
+        p.add(lb2);
+        p.add(lb3);
+
+
+    }
+
+    private void setButton(){
+
+        enter.setBounds(545,290,300,300);
+        enter.addActionListener(this);
+        enter.setBackground(new Color(255,255,255));
+
+        enter.setIcon(new ImageIcon("IMG/entra.png"));
+
+
+
+
+
+        p.add(enter);
+
+
+
+
+
+
+    }
+
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFrame f = new JFrame();
 
 
-        user1.setNome(a1.getText());
-        user2.setNome(a2.getText());
-
-        if((user1.getNome().equals(user2.getNome()) == true)){
-            JOptionPane.showMessageDialog(f,"I nomi inseriti sono uguali");
-        }
-        else{
-
-            user1.setColore(1);
-            user2.setColore(0);
-
-            JOptionPane.showMessageDialog(f, "Login completato");
-
-            logCheck = true;
-
-        }
-
-        if(logCheck == true){
-            dispose();
-
-        }
+        frame.setVisible(false);
+        frame.dispose();
+        BoardGUI b = new BoardGUI();
+        b.boardDisplay();
 
     }
-
 }
