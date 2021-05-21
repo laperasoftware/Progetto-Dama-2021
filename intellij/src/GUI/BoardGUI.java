@@ -10,19 +10,20 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
     private JPanel scacchiera = new JPanel();
+    private JPanel mainP = new JPanel(new GridLayout());
     private JButton pulsanti[][] = new JButton[8][8];
     private char posizioni[][] = new char[8][8];
     private JFrame frame = new JFrame();
-    boolean primo = false;
-    boolean secondo = false;
-    int aux1;
-    int aux2;
+    private JPanel score = new JPanel(new BorderLayout());
+    private JLabel lb = new JLabel("Mi piace come programmi");
+    private JLabel lb2 = new JLabel("Bella lì");
 
 
 
     public void boardDisplay() {
 
         setBoard();
+        setScoreBoard();
         boardUpdate();
 
     }
@@ -35,8 +36,9 @@ public class BoardGUI extends JPanel implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-
+        mainP.setLayout(new GridLayout(2,1));
         scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
+
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -129,24 +131,38 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
             }
         }
+      /*  mainP.add(scacchiera, BorderLayout.CENTER);
+
+        frame.add(mainP);*/
 
 
-        scacchiera.setBounds(100, 100, 100, 100);
+    }
 
-        frame.add(scacchiera, BorderLayout.CENTER);
-
-        frame.add(scacchiera);
+    public void setScoreBoard(){
 
 
+
+        mainP.add(scacchiera, BorderLayout.CENTER);
+
+        frame.add(mainP);
+
+        lb.setHorizontalAlignment(JLabel.CENTER);
+        score.add(lb, BorderLayout.CENTER);
+
+        mainP.add(score,BorderLayout.SOUTH);
+        mainP.setAlignmentX(Component.TOP_ALIGNMENT);
     }
 
     private void boardUpdate() {
         for (int i = 0; i < 8; i++) {
 
             for (int j = 0; j < 8; j++) {
+
                 if (posizioni[i][j] == 'b') {
                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                } else if (posizioni[i][j] == 'w') {
+                }
+
+                else if (posizioni[i][j] == 'w') {
                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
 
                 }
@@ -159,103 +175,10 @@ public class BoardGUI extends JPanel implements ActionListener {
     }
 
 
-    private void resetBool() {
-        primo = false;
-        secondo = false;
-    }
-
-    private void secondMoveBlack(int a, int b) {
-
-        pulsanti[a][b].setIcon(new ImageIcon("IMG/ckW.png"));
-    }
-
-    private void secondMoveWhite(int a, int b) {
-
-        pulsanti[a][b].setIcon(new ImageIcon("IMG/ckB.png"));
-    }
-
-    private void turnoG1(ActionEvent e){
-
-        JButton source = (JButton) e.getSource();
-        aux1 = 0;
-        aux2 = 0;
-
-
-        for (int i = 0; i < 8; i++) {
-
-            for (int j = 0; j < 8; j++) {
-
-                if (source == pulsanti[i][j]) {
-
-
-                    if (primo == false && secondo == false) {
-
-                        aux1 = i;
-                        aux2 = j;
-                        primo = true;
-                        pulsanti[i][j].setIcon(null);
-
-                    }
-                    else if (primo == true) {
-
-                        secondMoveBlack(i, j);
-                        secondo = true;
-                    }
-
-
-                }
-
-            }
-
-            if (primo == true && secondo == true) {
-                resetBool();
-            }
-        }
-    }
-
-    private void turnoG2(ActionEvent e){
-
-        JButton source = (JButton) e.getSource();
-        aux1 = 0;
-        aux2 = 0;
-
-
-        for (int i = 0; i < 8; i++) {
-
-            for (int j = 0; j < 8; j++) {
-
-                if (source == pulsanti[i][j]) {
-
-
-                    if (primo == false && secondo == false) {
-
-                        aux1 = i;
-                        aux2 = j;
-                        primo = true;
-                        pulsanti[i][j].setIcon(null);
-
-                    }
-                    else if (primo == true) {
-
-                        secondMoveWhite(i, j);
-                        secondo = true;
-                    }
-
-
-                }
-
-            }
-
-            if (primo == true && secondo == true) {
-                resetBool();
-            }
-        }
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        turnoG1(e);
+
 
 
     }
