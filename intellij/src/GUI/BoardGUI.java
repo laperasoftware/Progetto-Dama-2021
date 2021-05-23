@@ -14,9 +14,12 @@ public class BoardGUI extends JPanel implements ActionListener {
     private char posizioni[][] = new char[8][8];
     private JFrame frame = new JFrame();
     private JPanel score = new JPanel(new BorderLayout());
-    private JLabel lb = new JLabel("Mi piace come programmi");
+    private JLabel lb = new JLabel("");
+    boolean primo = false;
+    boolean secondo = false;
+    private int aux1;
+    private int aux2;
     private Container c;
-
 
 
     public void boardDisplay() {
@@ -28,6 +31,8 @@ public class BoardGUI extends JPanel implements ActionListener {
         setBoard();
 
         boardUpdate();
+
+        setLabel();
 
     }
 
@@ -97,7 +102,9 @@ public class BoardGUI extends JPanel implements ActionListener {
 
         scacchiera.setPreferredSize(new Dimension(600,600));
         c.add(scacchiera, BorderLayout.CENTER);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
         for (int i = 0; i < 3; i++) {
             if (i % 2 == 0) {
                 for (int j = 0; j < 8; j++) {
@@ -113,7 +120,9 @@ public class BoardGUI extends JPanel implements ActionListener {
                     }
                 }
             }
+
         }
+
 //////////////////////////////////////////////////////////////////////////////////////
 
         for (int i = 5; i < 8; i++) {
@@ -134,6 +143,22 @@ public class BoardGUI extends JPanel implements ActionListener {
             }
         }
     }
+
+
+    private void setLabel(){
+
+        lb.setText("TURNO G1");
+        lb.setForeground(new Color(0,0,0));
+        lb.setFont(new Font("Consalas", Font.BOLD, 30));
+
+
+
+
+
+
+    }
+
+
 
     public void setScoreBoard(){
 
@@ -168,16 +193,73 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
     }
 
+    private void turnoGB(ActionEvent e){
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(primo == false && secondo == false){
+
+                    if(e.getSource() == pulsanti[i][j]){
+                        if(posizioni[i][j] != 'b'){
+
+                           JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            primo = false;
+
+                        }
+
+                        else if(posizioni[i][j] == 'b'){
+
+                            posizioni[i][j] = '-';
+                            pulsanti[i][j].setIcon(null);
+                            aux1 = i;
+                            aux2 = j;
+                            boardUpdate();
+                            primo = true;
+
+                        }
+                    }
+                }
+
+                else if(primo == true && secondo == false){
+
+
+                   if(e.getSource() == pulsanti[i][j]) {
+
+
+                       if (posizioni[i][j] == 'b') {
+
+                            JOptionPane.showMessageDialog(null, "La casella selezionata è occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            secondo = false;
+
+                        }
+
+                        else if(posizioni[i][j] == '-'){
+
+                            if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
+
+                                posizioni[i][j] = 'b';
+                                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
+                                boardUpdate();
+                                secondo = true;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void resetBool(){
+        primo = false;
+        secondo = false;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
-
+        turnoGB( e);
+        resetBool();
 
     }
-
 }
-
-
-

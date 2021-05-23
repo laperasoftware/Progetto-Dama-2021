@@ -20,12 +20,10 @@ public class LoginGUI extends JFrame implements ActionListener {
     private JLabel lb2 = new JLabel("Alessandro Orlando");
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
 
-
     private Icon icon = new ImageIcon("entra.png");
 
-
-
     private JButton enter = new JButton();
+
 
 
     public LoginGUI(){
@@ -95,19 +93,8 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         enter.setIcon(new ImageIcon("IMG/entra.png"));
 
-
-
-
-
         p.add(enter);
-
-
-
-
-
-
     }
-
 
 
 
@@ -119,6 +106,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         frame.dispose();
         BoardGUI b = new BoardGUI();
         b.boardDisplay();
+
 
     }
 }
