@@ -10,33 +10,35 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
     private JPanel scacchiera = new JPanel();
-    private JPanel mainP = new JPanel(new GridLayout());
     private JButton pulsanti[][] = new JButton[8][8];
     private char posizioni[][] = new char[8][8];
     private JFrame frame = new JFrame();
     private JPanel score = new JPanel(new BorderLayout());
     private JLabel lb = new JLabel("Mi piace come programmi");
-    private JLabel lb2 = new JLabel("Bella lì");
+    private Container c;
 
 
 
     public void boardDisplay() {
 
-        setBoard();
+        c = frame.getContentPane();
+        c.setLayout(new BorderLayout());
+
         setScoreBoard();
+        setBoard();
+
         boardUpdate();
 
     }
 
     private void setBoard() {
 
-        frame.setSize(600, 600);
+        frame.setSize(800, 800);
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.lightGray);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        mainP.setLayout(new GridLayout(2,1));
         scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
 
 
@@ -46,8 +48,6 @@ public class BoardGUI extends JPanel implements ActionListener {
                 pulsanti[i][j] = new JButton();
 
                 pulsanti[i][j].addActionListener(this);
-
-                frame.getContentPane().add(pulsanti[i][j]);
 
                 posizioni[i][j] = '-';
 
@@ -95,6 +95,8 @@ public class BoardGUI extends JPanel implements ActionListener {
             }
         }
 
+        scacchiera.setPreferredSize(new Dimension(600,600));
+        c.add(scacchiera, BorderLayout.CENTER);
 ////////////////////////////////////////////////////////////////////////////////////////////////
         for (int i = 0; i < 3; i++) {
             if (i % 2 == 0) {
@@ -131,26 +133,18 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
             }
         }
-      /*  mainP.add(scacchiera, BorderLayout.CENTER);
-
-        frame.add(mainP);*/
-
-
     }
 
     public void setScoreBoard(){
 
-
-
-        mainP.add(scacchiera, BorderLayout.CENTER);
-
-        frame.add(mainP);
-
         lb.setHorizontalAlignment(JLabel.CENTER);
-        score.add(lb, BorderLayout.CENTER);
 
-        mainP.add(score,BorderLayout.SOUTH);
-        mainP.setAlignmentX(Component.TOP_ALIGNMENT);
+        score.add(lb);
+
+        score.setPreferredSize(new Dimension(100,100));
+        c.add(score,BorderLayout.SOUTH);
+
+
     }
 
     private void boardUpdate() {
