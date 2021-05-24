@@ -20,10 +20,17 @@ public class LoginGUI extends JFrame implements ActionListener {
     private JLabel lb2 = new JLabel("Alessandro Orlando");
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
 
+    private JLabel lb4 = new JLabel("ENTRA");
+
+
     private Icon icon = new ImageIcon("entra.png");
 
-    private JButton enter = new JButton();
 
+    private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
+    private JLabel background = new JLabel("",img,JLabel.CENTER);
+
+
+    private JButton enter = new JButton();
 
 
     public LoginGUI(){
@@ -34,6 +41,9 @@ public class LoginGUI extends JFrame implements ActionListener {
         setPanel();
         setLabel();
         setButton();
+        setSfondo();
+
+
 
 
     }
@@ -54,6 +64,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
     }
 
+
     private void setPanel(){
 
         frame.add(p);
@@ -61,40 +72,75 @@ public class LoginGUI extends JFrame implements ActionListener {
         p.setLayout(null);
 
 
+
+
     }
+
+
+
+    private void setSfondo(){
+
+        background.setBounds(123,132,800,134);
+        p.add(background);
+
+
+
+
+    }
+
+
+
+
+
+
 
 
     private void setLabel(){
 
-        lb1.setBounds(560,90,800,250);
+        lb1.setBounds(820,90,800,250);
         lb1.setFont(new Font("Stencil", Font.BOLD, 96));
 
 
-        lb2.setBounds(1010, 421, 842,262);
-        lb2.setFont(new Font("Stencil", Font.BOLD, 26));
+
+        lb2.setBounds(1400, 421, 842,262);
+        lb2.setFont(new Font("Arial", Font.BOLD, 26));
 
 
-        lb3.setBounds(1010, 461, 842,262);
-        lb3.setFont(new Font("Stencil", Font.BOLD, 26));
+
+        lb3.setBounds(1400, 461, 842,262);
+        lb3.setFont(new Font("Arial", Font.BOLD, 26));
+
+
+
+        lb4.setBounds(880,520,800,250);
+        lb4.setFont(new Font("Stencil", Font.BOLD, 46));
+
 
 
         p.add(lb1);
         p.add(lb2);
         p.add(lb3);
-
+        p.add(lb4);
 
     }
 
+
+
+
     private void setButton(){
 
-        enter.setBounds(545,290,300,300);
+        enter.setBounds(800,290,300,300);
         enter.addActionListener(this);
         enter.setBackground(new Color(255,255,255));
 
         enter.setIcon(new ImageIcon("IMG/entra.png"));
 
         p.add(enter);
+
+
     }
+
+
 
 
 
@@ -107,6 +153,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         BoardGUI b = new BoardGUI();
         b.boardDisplay();
 
-
     }
+
+
 }
