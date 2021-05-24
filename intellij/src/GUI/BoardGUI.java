@@ -195,11 +195,15 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     private void turnoGB(ActionEvent e){
 
+        JButton source = (JButton) e.getSource();
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if(primo == false && secondo == false){
 
-                    if(e.getSource() == pulsanti[i][j]){
+                if(source == pulsanti[i][j]){
+                    if(primo == false && secondo == false){
+
+
                         if(posizioni[i][j] != 'b'){
 
                            JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
@@ -211,20 +215,17 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                             posizioni[i][j] = '-';
                             pulsanti[i][j].setIcon(null);
+                            primo = true;
                             aux1 = i;
                             aux2 = j;
                             boardUpdate();
-                            primo = true;
+
 
                         }
                     }
-                }
-
-                else if(primo == true && secondo == false){
 
 
-                   if(e.getSource() == pulsanti[i][j]) {
-
+                else if(primo == true){
 
                        if (posizioni[i][j] == 'b') {
 
@@ -233,22 +234,26 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                         }
 
-                        else if(posizioni[i][j] == '-'){
+                       else if(posizioni[i][j] == '-' && secondo == false){
 
-                            if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
+                           if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
-                                posizioni[i][j] = 'b';
-                                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                                boardUpdate();
-                                secondo = true;
+                               posizioni[i][j] = 'b';
+                               pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
+                               boardUpdate();
+                               secondo = true;
 
-                            }
-                        }
-                    }
+                           }
+                       }
+                }
+
+                else if(primo == true && secondo == true){
+                    resetBool();
                 }
             }
         }
     }
+}
 
     private void resetBool(){
         primo = false;
@@ -259,7 +264,7 @@ public class BoardGUI extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         turnoGB( e);
-        resetBool();
+
 
     }
 }
