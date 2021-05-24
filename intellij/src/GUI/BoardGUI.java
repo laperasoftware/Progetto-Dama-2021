@@ -193,7 +193,9 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
     }
 
-    private void turnoGB(ActionEvent e){
+    private boolean turnoGB(ActionEvent e){
+
+        boolean comp = false;
 
         JButton source = (JButton) e.getSource();
 
@@ -207,7 +209,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                         if(posizioni[i][j] != 'b'){
 
                            JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                            primo = false;
+                           primo = false;
 
                         }
 
@@ -225,35 +227,104 @@ public class BoardGUI extends JPanel implements ActionListener {
                     }
 
 
-                else if(primo == true){
+                    else if(primo == true){
 
-                       if (posizioni[i][j] == 'b') {
+                        if (posizioni[i][j] == 'b') {
 
                             JOptionPane.showMessageDialog(null, "La casella selezionata è occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                            secondo = false;
+                            posizioni[aux1][aux2] = 'b';
+                            primo = false;
+                            boardUpdate();
 
                         }
 
-                       else if(posizioni[i][j] == '-' && secondo == false){
+                        else if(posizioni[i][j] == '-' && secondo == false){
 
                            if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
                                posizioni[i][j] = 'b';
                                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                               boardUpdate();
                                secondo = true;
-
+                               boardUpdate();
+                               resetBool();
+                               comp = true;
                            }
-                       }
-                }
-
-                else if(primo == true && secondo == true){
-                    resetBool();
+                        }
+                    }
                 }
             }
         }
-    }
+        return (comp);
 }
+
+    private boolean turnoGW(ActionEvent e){
+
+        boolean comp = false;
+
+        JButton source = (JButton) e.getSource();
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                if(source == pulsanti[i][j]){
+                    if(primo == false && secondo == false){
+
+
+                        if(posizioni[i][j] != 'w'){
+
+                            JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            primo = false;
+
+                        }
+
+                        else if(posizioni[i][j] == 'w'){
+
+                            posizioni[i][j] = '-';
+                            pulsanti[i][j].setIcon(null);
+                            primo = true;
+                            aux1 = i;
+                            aux2 = j;
+                            boardUpdate();
+
+
+                        }
+                    }
+
+
+                    else if(primo == true){
+
+                        if (posizioni[i][j] == 'w') {
+
+                            JOptionPane.showMessageDialog(null, "La casella selezionata è occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            posizioni[aux1][aux2] = 'w';
+                            primo = false;
+                            boardUpdate();
+
+                        }
+
+                        else if(posizioni[i][j] == '-' && secondo == false){
+
+                            if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
+
+                                posizioni[i][j] = 'w';
+                                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
+                                secondo = true;
+                                boardUpdate();
+                                resetBool();
+                                comp = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return (comp);
+    }
+
+
+
+
+
 
     private void resetBool(){
         primo = false;
@@ -263,7 +334,12 @@ public class BoardGUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        turnoGB( e);
+        if(turnoGB(e) == true){
+            lb.setText("Giocatore 2");
+        }
+        else{
+            turnoGW(e);
+        }
 
 
     }
