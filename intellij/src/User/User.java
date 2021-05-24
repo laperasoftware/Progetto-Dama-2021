@@ -6,6 +6,7 @@ public class User {
 
 
 
+
     private int colore;
 
     public String getNome() {

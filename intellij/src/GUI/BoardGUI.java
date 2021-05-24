@@ -335,7 +335,7 @@ public class BoardGUI extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(turnoGB(e) == true){
-            lb.setText("Giocatore 2");
+            lb.setText("Turno Giocatore ");
         }
         else{
             turnoGW(e);

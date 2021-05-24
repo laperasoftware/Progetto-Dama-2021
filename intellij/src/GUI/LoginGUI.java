@@ -10,10 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+
 public class LoginGUI extends JFrame implements ActionListener {
 
     private JFrame frame = new JFrame();
-    private JButton b1 = new JButton();
     private JPanel p = new JPanel();
 
     private JLabel lb1 = new JLabel("DAMA");
@@ -21,9 +21,6 @@ public class LoginGUI extends JFrame implements ActionListener {
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
 
     private JLabel lb4 = new JLabel("ENTRA");
-
-
-    private Icon icon = new ImageIcon("entra.png");
 
 
     private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
