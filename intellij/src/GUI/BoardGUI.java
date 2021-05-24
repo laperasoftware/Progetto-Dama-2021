@@ -10,15 +10,23 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
     private JPanel scacchiera = new JPanel();
-    private JButton pulsanti[][] = new JButton[8][8];
-    private char posizioni[][] = new char[8][8];
-    private JFrame frame = new JFrame();
     private JPanel score = new JPanel(new BorderLayout());
+
+    private JButton pulsanti[][] = new JButton[8][8];
+
+    private char posizioni[][] = new char[8][8];
+
+    private JFrame frame = new JFrame();
+
     private JLabel lb = new JLabel("");
+
     boolean primo = false;
     boolean secondo = false;
+    boolean giocatoreBianco = true;
+
     private int aux1;
     private int aux2;
+
     private Container c;
 
 
@@ -158,8 +166,6 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     }
 
-
-
     public void setScoreBoard(){
 
         lb.setHorizontalAlignment(JLabel.CENTER);
@@ -193,9 +199,8 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
     }
 
-    private boolean turnoGB(ActionEvent e){
+    private void turnoGB(ActionEvent e){
 
-        boolean comp = false;
 
         JButton source = (JButton) e.getSource();
 
@@ -238,7 +243,14 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                         }
 
-                        else if(posizioni[i][j] == '-' && secondo == false){
+                        else if(((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))){
+                            JOptionPane.showMessageDialog(null, "Non si può tornare indietro", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            posizioni[aux1][aux2] = 'b';
+                            primo = false;
+                            boardUpdate();
+                        }
+
+                        else if((posizioni[i][j] == '-' || posizioni[i][j] == 'w') && secondo == false){
 
                            if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
@@ -247,19 +259,16 @@ public class BoardGUI extends JPanel implements ActionListener {
                                secondo = true;
                                boardUpdate();
                                resetBool();
-                               comp = true;
+
                            }
                         }
                     }
                 }
             }
         }
-        return (comp);
 }
 
-    private boolean turnoGW(ActionEvent e){
-
-        boolean comp = false;
+    private void turnoGW(ActionEvent e){
 
         JButton source = (JButton) e.getSource();
 
@@ -301,8 +310,14 @@ public class BoardGUI extends JPanel implements ActionListener {
                             boardUpdate();
 
                         }
+                        else if(((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))){
+                            JOptionPane.showMessageDialog(null, "Non si può tornare indietro", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            posizioni[aux1][aux2] = 'w';
+                            primo = false;
+                            boardUpdate();
+                        }
 
-                        else if(posizioni[i][j] == '-' && secondo == false){
+                        else if((posizioni[i][j] == '-' || posizioni[i][j] == 'b') && secondo == false){
 
                             if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
 
@@ -311,14 +326,13 @@ public class BoardGUI extends JPanel implements ActionListener {
                                 secondo = true;
                                 boardUpdate();
                                 resetBool();
-                                comp = true;
+
                             }
                         }
                     }
                 }
             }
         }
-        return (comp);
     }
 
 
@@ -330,13 +344,16 @@ public class BoardGUI extends JPanel implements ActionListener {
         primo = false;
         secondo = false;
     }
+    int cont = 1;
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(turnoGB(e) == true){
-            lb.setText("Turno Giocatore ");
+        if(cont != 3){
+            turnoGB(e);
+            cont++;
         }
+
         else{
             turnoGW(e);
         }
