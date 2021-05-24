@@ -10,15 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class LoginGUI extends JFrame implements ActionListener {
+public class LogGUI extends JFrame implements ActionListener {
 
     private JFrame frame = new JFrame();
     private JButton b1 = new JButton();
     private JPanel p = new JPanel();
 
     private JLabel lb1 = new JLabel("DAMA");
-    private JLabel lb2 = new JLabel("Alessandro Orlando");
-    private JLabel lb3 = new JLabel("Massimiliano Lisi");
+    private JLabel lbb = new JLabel("Nome del Giocatore Nero");
+    private JLabel lbw = new JLabel("Nome del Giocatore Bianco");
 
     private JLabel lb4 = new JLabel("ENTRA");
 
@@ -33,7 +33,11 @@ public class LoginGUI extends JFrame implements ActionListener {
     private JButton enter = new JButton();
 
 
-    public LoginGUI(){
+    private JTextField tb = new JTextField();
+    private JTextField tw = new JTextField();
+
+
+    public LogGUI(){
 
         super("LogIn");
 
@@ -42,6 +46,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         setLabel();
         setButton();
         setSfondo();
+        setTextField();
 
 
 
@@ -102,13 +107,13 @@ public class LoginGUI extends JFrame implements ActionListener {
 
 
 
-        lb2.setBounds(1500, 721, 842,262);
-        lb2.setFont(new Font("Arial", Font.BOLD, 26));
+        lbb.setBounds(400, 300, 842,262);
+        lbb.setFont(new Font("Arial", Font.BOLD, 26));
 
 
 
-        lb3.setBounds(1500, 761, 842,262);
-        lb3.setFont(new Font("Arial", Font.BOLD, 26));
+        lbw.setBounds(400, 360, 842,262);
+        lbw.setFont(new Font("Arial", Font.BOLD, 26));
 
 
 
@@ -118,9 +123,28 @@ public class LoginGUI extends JFrame implements ActionListener {
 
 
         p.add(lb1);
-        p.add(lb2);
-        p.add(lb3);
+        p.add(lbb);
+        p.add(lbw);
         p.add(lb4);
+
+    }
+
+
+    private void setTextField(){
+
+        tb.setBounds(790, 400, 342,62);
+        tb.setForeground(new Color(255,255,255));
+        tb.setFont(new Font("Consalas", Font.BOLD, 30));
+        tb.setBackground(new Color(0,0,0));
+
+        tw.setBounds(790, 460, 342,62);
+        tw.setForeground(new Color(0,0,0));
+        tw.setFont(new Font("Consalas", Font.BOLD, 30));
+        tw.setBackground(new Color(255,255,255));
+
+        p.add(tb);
+        p.add(tw);
+
 
     }
 
@@ -129,11 +153,14 @@ public class LoginGUI extends JFrame implements ActionListener {
 
     private void setButton(){
 
-        enter.setBounds(800,290,300,300);
+        enter.setBounds(710,690,500,100);
         enter.addActionListener(this);
         enter.setBackground(new Color(255,255,255));
 
-        enter.setIcon(new ImageIcon("IMG/entra.png"));
+        enter.setText("ENTRA NEL GIOCO");
+
+        enter.setForeground(new Color(0,0,0));
+        enter.setFont(new Font("Consalas", Font.BOLD, 30));
 
         p.add(enter);
 
@@ -150,7 +177,8 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         frame.setVisible(false);
         frame.dispose();
-        LogGUI b = new LogGUI();
+        BoardGUI b = new BoardGUI();
+        b.boardDisplay();
 
     }
 
