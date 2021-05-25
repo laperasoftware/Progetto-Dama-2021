@@ -30,6 +30,9 @@ public class BoardGUI extends JPanel implements ActionListener {
     private Container c;
 
 
+    boolean check = true;
+
+
     public void boardDisplay() {
 
         c = frame.getContentPane();
@@ -211,6 +214,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                             JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine nere", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                             primo = false;
 
+
                         }
 
                         else if (posizioni[i][j] == 'b') {
@@ -235,6 +239,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                             primo = false;
                             boardUpdate();
 
+
                         }
 
                         else if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
@@ -242,6 +247,8 @@ public class BoardGUI extends JPanel implements ActionListener {
                             posizioni[aux1][aux2] = 'b';
                             primo = false;
                             boardUpdate();
+
+
                         }
 
                         else if ((posizioni[i][j] == '-' && secondo == false)) {
@@ -283,6 +290,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                             posizioni[aux1][aux2] = 'b';
                             primo = false;
                             boardUpdate();
+
                         }
                     }
                 }
@@ -306,6 +314,8 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                             JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine bianche", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                             primo = false;
+
+
 
                         }
 
@@ -331,6 +341,8 @@ public class BoardGUI extends JPanel implements ActionListener {
                             primo = false;
                             boardUpdate();
 
+
+
                         }
 
                         else if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
@@ -338,6 +350,9 @@ public class BoardGUI extends JPanel implements ActionListener {
                             posizioni[aux1][aux2] = 'w';
                             primo = false;
                             boardUpdate();
+
+
+
                         }
 
                         else if ((posizioni[i][j] == '-' && secondo == false)) {
@@ -379,6 +394,8 @@ public class BoardGUI extends JPanel implements ActionListener {
                             posizioni[aux1][aux2] = 'w';
                             primo = false;
                             boardUpdate();
+
+
                         }
                     }
                 }
@@ -453,34 +470,38 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     }
 
-    int cont = 0;
+    int cont = 1;
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (cont < 2) {
+
+        if (cont <= 2) {
 
             turnoGB(e);
 
             vittoriaGB();
-            cont++;
 
-        } else if(cont > 2 || cont < 4) {
 
+
+
+        } else if(cont > 2 && cont <= 4) {
 
             turnoGW(e);
 
-
             vittoriaGW();
 
-            cont ++;
+
+
         }
 
-        else if(cont >= 4){
-            cont = 0;
-        }
+        if(cont > 4){
 
+            cont = 1;
+
+
+        }
 
     }
 }
