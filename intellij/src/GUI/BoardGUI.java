@@ -6,8 +6,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static GUI.BoardGUI.turn.BLACK;
+import static GUI.BoardGUI.turn.WHITE;
+
 public class BoardGUI extends JPanel implements ActionListener {
 
+    enum turn {
+        BLACK, WHITE;
+    }
+
+    turn currentTurn;
+
+    boolean isTurnOver = false;
+
+    public BoardGUI() {
+        currentTurn = WHITE; //dama il bianco
+    }
 
     private JPanel scacchiera = new JPanel();
     private JPanel score = new JPanel(new BorderLayout());
@@ -152,7 +166,6 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
     }
 
-
     private void setLabel() {
 
         lb.setText("TURNO G1");
@@ -193,7 +206,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
     }
 
-    private boolean turnoGB(ActionEvent e) {
+    private boolean turnBlack(ActionEvent e) {
 
         boolean disp = false;
 
@@ -361,7 +374,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         return (disp);
     }
 
-    private boolean turnoGW(ActionEvent e, int c) {
+    private boolean turnWhite(ActionEvent e) {
         boolean disp = false;
 
         JButton source = (JButton) e.getSource();
@@ -603,14 +616,53 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     boolean comp = false;
     boolean gig;
+
+
+    private void nextTurn() {
+        if (currentTurn == BLACK) {
+            currentTurn = WHITE;
+            lb.setText("Turno Giocatore Bianco\n".toUpperCase());
+        }
+        else {
+            currentTurn = BLACK;
+            lb.setText("Turno Giocatore Nero\n".toUpperCase());
+        }
+    }
+    /**
+     *  non so se è chiamato da nero o bianco => devo capirlo e controllarlo io
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(comp== false){
+        switch (currentTurn) {
+
+            case BLACK -> {
+                //cose che puo fare e NON PUO' FARE IL NERO
+                turnBlack(e);
+                //se l'azioe fatta dal nero è illegale, non faccio un cazzo e lo balzo
+                //apri un pop up di errore e NON FARE UN CAZZO
+            }
+            case WHITE -> {
+                //COSE CHE IL BIANCO PUO' FARE
+
+            }
+        }
+
+        //QUANTO QUESTA A Z I O NE SPECIFICA PORTA A UNA CONCLUSIONE DEL TURNO
+        //METTO (SOPRA) A TRUE QUESTO FLAG CHE MI PERMETTE DI CHIAMARE IL TURNO DOPO OVVERO, CAMBIARE CHI C'E' IN CURRENTturn
+        if (isTurnOver) {
+            isTurnOver = false;
+            nextTurn();
+        }
+
+        nextTurn();
+        /*
+        if(!comp){
 
         if(cont < 2){
             lb.setText("Turno Giocatore Nero\n");
-            if(turnoGB(e) == true){
+            if(turnBlack(e)){
                 cont ++;
             }
             else{
@@ -638,7 +690,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             System.out.println(cont + " " + comp);;
             if(comp == true){
 
-                if(turnoGW(e, cont) == true){
+                if(turnoGW(e) == true){
                     cont ++;
                 }
 
@@ -656,6 +708,6 @@ public class BoardGUI extends JPanel implements ActionListener {
             cont = 0;
             comp = false;
             lb.setText("Turno Giocatore Nero\n");
-        }
+        } */
     }
 }
