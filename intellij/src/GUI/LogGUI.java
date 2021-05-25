@@ -1,23 +1,19 @@
 package GUI;
 
-import User.User;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.*;
-import java.util.*;
-import java.awt.Toolkit.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class LogGUI extends JFrame implements ActionListener {
+public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
     private JFrame frame = new JFrame();
 
-
-
-    private JButton b1 = new JButton();
     private JPanel p = new JPanel();
 
     private JLabel lb1 = new JLabel("DAMA");
@@ -25,9 +21,6 @@ public class LogGUI extends JFrame implements ActionListener {
     private JLabel lbw = new JLabel("Nome del Giocatore Bianco");
 
     private JLabel lb4 = new JLabel("ENTRA");
-
-
-    private Icon icon = new ImageIcon("entra.png");
 
 
     private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
@@ -41,9 +34,12 @@ public class LogGUI extends JFrame implements ActionListener {
     private JTextField tw = new JTextField();
 
 
-    private User user1 = new User();
-    private User user2 = new User();
+    private user.User user1 = new user.User();
+    private user.User user2 = new user.User();
 
+
+    FileWriter fWR = null;
+    PrintWriter fOUT;
 
 
 
@@ -80,6 +76,8 @@ public class LogGUI extends JFrame implements ActionListener {
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
+
+        frame.addWindowListener(this);
 
     }
 
@@ -184,7 +182,6 @@ public class LogGUI extends JFrame implements ActionListener {
 
 
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -227,4 +224,53 @@ public class LogGUI extends JFrame implements ActionListener {
     }
 
 
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        try {
+            fWR = new FileWriter("FILE/Data.txt");
+            fOUT = new PrintWriter(fWR);
+            fOUT.println(tb.getText());
+            fOUT.flush();
+            fOUT.println(tw.getText());
+            fOUT.flush();
+        } catch (Exception ioException) {
+            System.out.println("Errore nel File");
+        }
+
+        try {
+            fWR.close();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
 }

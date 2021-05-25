@@ -22,15 +22,11 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     boolean primo = false;
     boolean secondo = false;
-    boolean giocatoreBianco = true;
 
     private int aux1;
     private int aux2;
 
     private Container c;
-
-
-    boolean check = true;
 
 
     public void boardDisplay() {
@@ -365,11 +361,11 @@ public class BoardGUI extends JPanel implements ActionListener {
         return (disp);
     }
 
-
-    private boolean turnoGW(ActionEvent e) {
+    private boolean turnoGW(ActionEvent e, int c) {
         boolean disp = false;
 
         JButton source = (JButton) e.getSource();
+
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -535,8 +531,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
             }
         return (disp);
-    }
-
+}
 
     private void resetBool() {
 
@@ -614,6 +609,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         if(comp== false){
 
         if(cont < 2){
+            lb.setText("Turno Giocatore Nero\n");
             if(turnoGB(e) == true){
                 cont ++;
             }
@@ -630,7 +626,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             if(cont == 2){
               comp = true;
               cont = 3;
-
+              lb.setText("Turno Giocatore Bianco\n");
             }
 
         }
@@ -639,28 +635,27 @@ public class BoardGUI extends JPanel implements ActionListener {
         System.out.println(cont + " " + comp);;
 
         if(cont < 5 && cont > 2){
+            System.out.println(cont + " " + comp);;
             if(comp == true){
 
-
-            if(turnoGW(e) == true){
-                cont ++;
-            }
-            else{
-                cont --;
-
-                if(cont < 3){
-                    cont = 3;
+                if(turnoGW(e, cont) == true){
+                    cont ++;
                 }
-            }
+
+                else{
+                    cont --;
+
+                    if(cont < 3){
+                       cont = 3;
+                    }
+                }
             }
         }
 
         if(cont == 5){
             cont = 0;
             comp = false;
+            lb.setText("Turno Giocatore Nero\n");
         }
-
-        return;
-
     }
 }

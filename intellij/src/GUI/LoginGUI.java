@@ -40,10 +40,6 @@ public class LoginGUI extends JFrame implements ActionListener {
         setLabel();
         setButton();
 
-
-
-
-
     }
 
 
@@ -139,8 +135,6 @@ public class LoginGUI extends JFrame implements ActionListener {
 
 
     }
-
-
 
 
 
