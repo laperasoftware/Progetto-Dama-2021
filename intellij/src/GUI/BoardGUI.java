@@ -109,7 +109,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             }
         }
 
-        scacchiera.setPreferredSize(new Dimension(600,600));
+        scacchiera.setPreferredSize(new Dimension(600, 600));
         c.add(scacchiera, BorderLayout.CENTER);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,27 +154,23 @@ public class BoardGUI extends JPanel implements ActionListener {
     }
 
 
-    private void setLabel(){
+    private void setLabel() {
 
         lb.setText("TURNO G1");
-        lb.setForeground(new Color(0,0,0));
+        lb.setForeground(new Color(0, 0, 0));
         lb.setFont(new Font("Consalas", Font.BOLD, 30));
-
-
-
-
 
 
     }
 
-    public void setScoreBoard(){
+    public void setScoreBoard() {
 
         lb.setHorizontalAlignment(JLabel.CENTER);
 
         score.add(lb);
 
-        score.setPreferredSize(new Dimension(100,100));
-        c.add(score,BorderLayout.SOUTH);
+        score.setPreferredSize(new Dimension(100, 100));
+        c.add(score, BorderLayout.SOUTH);
 
 
     }
@@ -186,9 +182,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                 if (posizioni[i][j] == 'b') {
                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                }
-
-                else if (posizioni[i][j] == 'w') {
+                } else if (posizioni[i][j] == 'w') {
                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB.png"));
 
                 }
@@ -200,7 +194,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
     }
 
-    private void turnoGB(ActionEvent e){
+    private void turnoGB(ActionEvent e) {
 
 
         JButton source = (JButton) e.getSource();
@@ -208,18 +202,18 @@ public class BoardGUI extends JPanel implements ActionListener {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                if(source == pulsanti[i][j]){
-                    if(primo == false && secondo == false){
+                if (source == pulsanti[i][j]) {
+                    if (primo == false && secondo == false) {
 
 
-                        if(posizioni[i][j] != 'b'){
+                        if (posizioni[i][j] != 'b') {
 
-                           JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                           primo = false;
+                            JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine nere", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            primo = false;
 
                         }
 
-                        else if(posizioni[i][j] == 'b'){
+                        else if (posizioni[i][j] == 'b') {
 
                             posizioni[i][j] = '-';
                             pulsanti[i][j].setIcon(null);
@@ -232,8 +226,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                         }
                     }
 
-
-                    else if(primo == true){
+                    else if (primo == true) {
 
                         if (posizioni[i][j] == 'b') {
 
@@ -244,55 +237,79 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                         }
 
-                        else if(((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))){
-                            JOptionPane.showMessageDialog(null, "Non si può tornare indietro", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                        else if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
+                            JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                             posizioni[aux1][aux2] = 'b';
                             primo = false;
                             boardUpdate();
                         }
 
-                        else if((posizioni[i][j] == '-' || posizioni[i][j] == 'w') && secondo == false){
+                        else if ((posizioni[i][j] == '-' && secondo == false)) {
 
-                           if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
+                            if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
-                               posizioni[i][j] = 'b';
-                               pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
-                               secondo = true;
-                               boardUpdate();
-                               resetBool();
+                                posizioni[i][j] = 'b';
+                                pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW.png"));
+                                secondo = true;
+                                boardUpdate();
+                                resetBool();
 
-                           }
+                            }
+
+                            else if (((i == aux1 + 2) && (j == aux2 + 2)) || ((i == aux1 + 2) && (j == aux2 - 2))) {
+
+                                if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
+
+                                    posizioni[aux1 + 2][aux2 + 2] = 'b';
+                                    posizioni[aux1 + 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+
+                                } else if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
+
+                                    posizioni[aux1 + 2][aux2 - 2] = 'b';
+                                    posizioni[aux1 + 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+
+                                }
+                            }
+                        }
+
+                        else if (posizioni[i][j] == 'w') {
+                            JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            posizioni[aux1][aux2] = 'b';
+                            primo = false;
+                            boardUpdate();
                         }
                     }
                 }
             }
         }
-}
+    }
 
 
-
-
-
-
-    private void turnoGW(ActionEvent e){
+    private void turnoGW(ActionEvent e) {
 
         JButton source = (JButton) e.getSource();
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                if(source == pulsanti[i][j]){
-                    if(primo == false && secondo == false){
+                if (source == pulsanti[i][j]) {
+                    if (primo == false && secondo == false) {
 
 
-                        if(posizioni[i][j] != 'w'){
+                        if (posizioni[i][j] != 'w') {
 
-                            JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine bianche", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                             primo = false;
 
                         }
 
-                        else if(posizioni[i][j] == 'w'){
+                        else if (posizioni[i][j] == 'w') {
 
                             posizioni[i][j] = '-';
                             pulsanti[i][j].setIcon(null);
@@ -305,8 +322,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                         }
                     }
 
-
-                    else if(primo == true){
+                    else if (primo == true) {
 
                         if (posizioni[i][j] == 'w') {
 
@@ -316,14 +332,15 @@ public class BoardGUI extends JPanel implements ActionListener {
                             boardUpdate();
 
                         }
-                        else if(((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))){
-                            JOptionPane.showMessageDialog(null, "Non si può tornare indietro", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+
+                        else if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
+                            JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                             posizioni[aux1][aux2] = 'w';
                             primo = false;
                             boardUpdate();
                         }
 
-                        else if((posizioni[i][j] == '-' || posizioni[i][j] == 'b') && secondo == false){
+                        else if ((posizioni[i][j] == '-' && secondo == false)) {
 
                             if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
 
@@ -334,6 +351,34 @@ public class BoardGUI extends JPanel implements ActionListener {
                                 resetBool();
 
                             }
+
+                            else if (((i == aux1 - 2) && (j == aux2 + 2)) || ((i == aux1 - 2) && (j == aux2 - 2))) {
+
+                                if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
+
+                                    posizioni[aux1 - 2][aux2 + 2] = 'w';
+                                    posizioni[aux1 - 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+
+                                } else if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
+
+                                    posizioni[aux1 - 2][aux2 - 2] = 'w';
+                                    posizioni[aux1 - 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+
+                                }
+                            }
+                        }
+
+                        else if (posizioni[i][j] == 'b') {
+                            JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            posizioni[aux1][aux2] = 'w';
+                            primo = false;
+                            boardUpdate();
                         }
                     }
                 }
@@ -342,25 +387,21 @@ public class BoardGUI extends JPanel implements ActionListener {
     }
 
 
-
-
-
-
-    private void resetBool(){
+    private void resetBool() {
 
         primo = false;
         secondo = false;
     }
 
 
-    private void vittoriaGB(){
+    private void vittoriaGB() {
 
         int cont = 0;
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                if(posizioni[i][j] == 'w'){
+                if (posizioni[i][j] == 'w') {
 
 
                     cont++;
@@ -371,7 +412,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
 
 
-        if(cont == 0){
+        if (cont == 0) {
 
             JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 1", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose();
@@ -383,14 +424,14 @@ public class BoardGUI extends JPanel implements ActionListener {
     }
 
 
-    private void vittoriaGW(){
+    private void vittoriaGW() {
 
         int cont = 0;
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                if(posizioni[i][j] == 'b'){
+                if (posizioni[i][j] == 'b') {
 
 
                     cont++;
@@ -401,7 +442,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
 
 
-        if(cont == 0){
+        if (cont == 0) {
 
             JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 2", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose();
@@ -418,16 +459,14 @@ public class BoardGUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(cont != 2){
+        if (cont != 2) {
 
             turnoGB(e);
 
             vittoriaGB();
             cont++;
 
-        }
-
-        else{
+        } else {
 
 
             turnoGW(e);
