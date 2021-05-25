@@ -51,6 +51,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         frame.setBackground(Color.lightGray);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setResizable(false);
 
         scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
 
@@ -268,6 +269,11 @@ public class BoardGUI extends JPanel implements ActionListener {
         }
 }
 
+
+
+
+
+
     private void turnoGW(ActionEvent e){
 
         JButton source = (JButton) e.getSource();
@@ -341,21 +347,93 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
     private void resetBool(){
+
         primo = false;
         secondo = false;
     }
-    int cont = 1;
+
+
+    private void vittoriaGB(){
+
+        int cont = 0;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                if(posizioni[i][j] == 'w'){
+
+
+                    cont++;
+                }
+
+
+            }
+        }
+
+
+        if(cont == 0){
+
+            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 1", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
+            frame.dispose();
+
+
+        }
+
+
+    }
+
+
+    private void vittoriaGW(){
+
+        int cont = 0;
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                if(posizioni[i][j] == 'b'){
+
+
+                    cont++;
+                }
+
+
+            }
+        }
+
+
+        if(cont == 0){
+
+            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 2", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
+            frame.dispose();
+
+
+        }
+
+
+    }
+
+    int cont = 0;
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(cont != 3){
+        if(cont != 2){
+
             turnoGB(e);
+
+            vittoriaGB();
             cont++;
+
         }
 
         else{
+
+
             turnoGW(e);
+
+
+            vittoriaGW();
         }
 
 

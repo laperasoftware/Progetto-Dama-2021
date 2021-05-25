@@ -1,5 +1,6 @@
 package GUI;
 
+import User.User;
 
 import java.io.*;
 import java.util.*;
@@ -13,6 +14,9 @@ import java.awt.event.ActionListener;
 public class LogGUI extends JFrame implements ActionListener {
 
     private JFrame frame = new JFrame();
+
+
+
     private JButton b1 = new JButton();
     private JPanel p = new JPanel();
 
@@ -37,15 +41,25 @@ public class LogGUI extends JFrame implements ActionListener {
     private JTextField tw = new JTextField();
 
 
+    private User user1 = new User();
+    private User user2 = new User();
+
+
+
+
+    public boolean logCheck;
+
+
     public LogGUI(){
 
         super("LogIn");
 
+
         setFrame();
         setPanel();
+        setSfondo();
         setLabel();
         setButton();
-        setSfondo();
         setTextField();
 
 
@@ -85,7 +99,7 @@ public class LogGUI extends JFrame implements ActionListener {
 
     private void setSfondo(){
 
-        background.setBounds(123,132,800,134);
+        background.setBounds(0,0,1650,1080);
         p.add(background);
 
 
@@ -174,11 +188,41 @@ public class LogGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        user1.setNome(tb.getText());
+        user2.setNome(tw.getText());
 
-        frame.setVisible(false);
-        frame.dispose();
-        BoardGUI b = new BoardGUI();
-        b.boardDisplay();
+        if((user1.getNome().equals(user2.getNome()) == true)){
+
+            JOptionPane.showMessageDialog(null, "I nomi inseriti sono uguali", "ERRORE", JOptionPane.INFORMATION_MESSAGE);
+            tb.setText(null);
+            tw.setText(null);
+
+
+        }
+        else{
+
+            user1.setColore(1);
+            user2.setColore(0);
+
+            JOptionPane.showMessageDialog(null, "Log Completato", "AVVIO", JOptionPane.INFORMATION_MESSAGE);
+
+            logCheck = true;
+
+        }
+
+        if(logCheck == true){
+
+            frame.dispose();
+            BoardGUI b = new BoardGUI();
+            b.boardDisplay();
+        }
+
+
+
+
+
+
+
 
     }
 

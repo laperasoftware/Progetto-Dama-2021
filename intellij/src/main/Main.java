@@ -2,7 +2,7 @@ package main;
 
 import GUI.BoardGUI;
 import GUI.LoginGUI;
-import user.User;
+import User.User;
 
 public class Main {
 

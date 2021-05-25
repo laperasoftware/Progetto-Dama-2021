@@ -36,9 +36,10 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         setFrame();
         setPanel();
+        setSfondo();
         setLabel();
         setButton();
-        setSfondo();
+
 
 
 
@@ -77,7 +78,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 
     private void setSfondo(){
 
-        background.setBounds(123,132,800,134);
+        background.setBounds(0,0,1650,1080);
         p.add(background);
 
 
@@ -129,8 +130,10 @@ public class LoginGUI extends JFrame implements ActionListener {
         enter.setBounds(800,290,300,300);
         enter.addActionListener(this);
         enter.setBackground(new Color(255,255,255));
-
+        enter.setVisible(true);
         enter.setIcon(new ImageIcon("IMG/entra.png"));
+
+
 
         p.add(enter);
 
