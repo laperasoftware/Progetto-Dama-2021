@@ -459,20 +459,26 @@ public class BoardGUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (cont != 2) {
+        if (cont < 2) {
 
             turnoGB(e);
 
             vittoriaGB();
             cont++;
 
-        } else {
+        } else if(cont > 2 || cont < 4) {
 
 
             turnoGW(e);
 
 
             vittoriaGW();
+
+            cont ++;
+        }
+
+        else if(cont >= 4){
+            cont = 0;
         }
 
 
