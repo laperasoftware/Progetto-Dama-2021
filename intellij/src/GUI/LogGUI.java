@@ -34,8 +34,8 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
     private JTextField tw = new JTextField();
 
 
-    private user.User user1 = new user.User();
-    private user.User user2 = new user.User();
+    private User.User user1 = new User.User();
+    private User.User user2 = new User.User();
 
 
     FileWriter fWR = null;
@@ -256,21 +256,31 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
     @Override
     public void windowDeactivated(WindowEvent e) {
+
         try {
+
             fWR = new FileWriter("FILE/Data.txt");
             fOUT = new PrintWriter(fWR);
             fOUT.println(tb.getText());
             fOUT.flush();
             fOUT.println(tw.getText());
             fOUT.flush();
+
         } catch (Exception ioException) {
             System.out.println("Errore nel File");
         }
 
         try {
+
             fWR.close();
-        } catch (IOException ioException) {
+
+        }
+
+        catch (IOException ioException) {
+
             ioException.printStackTrace();
         }
+
     }
+
 }
