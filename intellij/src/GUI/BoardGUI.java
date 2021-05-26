@@ -270,7 +270,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
                                     if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
 
-                                        posizioni[aux1 + 2][aux2 + 2] = 'b';
+                                        posizioni[i][j] = 'b';
                                         posizioni[aux1 + 1][aux2 + 1] = '-';
                                         pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
                                         boardUpdate();
@@ -280,12 +280,12 @@ public class BoardGUI extends JPanel implements ActionListener {
                                     }
                                 }
 
-                                if(j == 7 && i == 6){
-                                    if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
+                                if(j == 7 || j == 6){
+                                    if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
 
-                                        posizioni[aux1 + 2][aux2 - 2] = 'b';
-                                        posizioni[aux1 + 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
+                                        posizioni[i][j] = 'b';
+                                        posizioni[aux1 + 1][aux2 + 1] = '-';
+                                        pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
                                         boardUpdate();
                                         resetBool();
                                         disp = true;
@@ -307,7 +307,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                                 }
                             }
 
-                            if((i == aux1 + 2) && (j == aux2 - 2)){
+                            else if((i == aux1 + 2) && (j == aux2 - 2)){
                                 if(j < 6 && j > 0) {
 
 
@@ -323,10 +323,10 @@ public class BoardGUI extends JPanel implements ActionListener {
                                     }
                                 }
 
-                                if(j == 7 && i == 6){
+                                if(j == 7 || j == 6){
                                     if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
 
-                                        posizioni[aux1 + 2][aux2 - 2] = 'b';
+                                        posizioni[i][j] = 'b';
                                         posizioni[aux1 + 1][aux2 - 1] = '-';
                                         pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
                                         boardUpdate();
@@ -451,12 +451,12 @@ public class BoardGUI extends JPanel implements ActionListener {
                                     }
                                 }
 
-                                if(j == 7 && i == 6){
-                                    if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
+                                if(j == 7 || j == 6){
+                                    if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
 
-                                        posizioni[aux1 - 2][aux2 - 2] = 'w';
-                                        posizioni[aux1 - 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
+                                        posizioni[i][j] = 'w';
+                                        posizioni[aux1 - 1][aux2 + 1] = '-';
+                                        pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
                                         boardUpdate();
                                         resetBool();
                                         disp = true;
