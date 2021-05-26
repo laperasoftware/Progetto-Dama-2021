@@ -5,9 +5,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
-public class BoardGUI extends JPanel implements ActionListener {
+public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
+    private user.User u1 = new user.User();
+    private user.User u2 = new user.User();
+
+    private String temp;
 
     private JPanel scacchiera = new JPanel();
     private JPanel score = new JPanel(new BorderLayout());
@@ -30,8 +40,15 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     private Container c;
 
+
+
+
+
+
+
     public void boardDisplay() {
 
+        frame.addWindowListener(this);
         c = frame.getContentPane();
         c.setLayout(new BorderLayout());
 
@@ -155,7 +172,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     private void setLabel() {
 
-        lb.setText("TURNO GIOCATORE BIANCO");
+        lb.setText("INIZIA IL BIANCO");
         lb.setForeground(new Color(0, 0, 0));
         lb.setFont(new Font("Consalas", Font.BOLD, 30));
 
@@ -642,7 +659,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             if (cont == 2) {
                 comp = true;
                 cont = 3;
-                lb.setText("TURNO GIOCATORE NERO");
+                lb.setText("TURNO: " + u1.getNome().toUpperCase());
             }
 
             System.out.println(cont + " " + comp);
@@ -683,7 +700,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
             cont = 0;
             comp = false;
-            lb.setText("TURNO GIOCATORE BIANCO");
+            lb.setText("TURNO: " + u2.getNome().toUpperCase());
 
         }
 
@@ -693,6 +710,79 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     }
 
+
+
+
+
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+        boolean g1 = true;
+        BufferedReader inputStream=null;
+
+        try {
+            inputStream = new BufferedReader(new FileReader("FILE/Data.txt"));
+        }
+
+        catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+
+        try {
+            temp = inputStream.readLine();
+            while(temp != null){
+                if(g1 == true) {
+                    System.out.println(temp);
+                    u1.setNome(temp);
+                    g1 = false;
+                }
+
+                else{
+                    System.out.println(temp);
+                    u2.setNome(temp);
+                    g1 = true;
+                }
+
+                temp = inputStream.readLine();
+            }
+        }
+        catch (Exception fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+
+        System.out.println(u1.getNome());
+        System.out.println(u2.getNome());
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
 }
 
 

@@ -34,8 +34,8 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
     private JTextField tw = new JTextField();
 
 
-    private User.User user1 = new User.User();
-    private User.User user2 = new User.User();
+    private user.User user1 = new user.User();
+    private user.User user2 = new user.User();
 
 
     FileWriter fWR = null;

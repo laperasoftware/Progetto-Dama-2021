@@ -124,12 +124,12 @@
     </state>
     <state x="414" y="173" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617813510148" />
     <state x="414" y="173" width="1092" height="789" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1619617207102" />
-    <state x="2685" y="234" key="#com.intellij.ide.util.MemberChooser" timestamp="1621968683882">
+    <state x="2685" y="234" key="#com.intellij.ide.util.MemberChooser" timestamp="1622020572264">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617816564903" />
     <state x="765" y="234" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1619618779192" />
-    <state x="2685" y="234" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1621968683882" />
+    <state x="2685" y="234" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622020572264" />
     <state x="689" y="320" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1618578858908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -140,7 +140,7 @@
     </state>
     <state x="740" y="273" key="FileChooserDialogImpl/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617814247819" />
     <state x="740" y="273" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1621607515152" />
-    <state width="1876" height="239" key="GridCell.Tab.0.bottom" timestamp="1622018062898">
+    <state width="1876" height="239" key="GridCell.Tab.0.bottom" timestamp="1622021529613">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="279" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621923123905" />
@@ -149,8 +149,8 @@
     <state width="1876" height="276" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617816629017" />
     <state width="1556" height="215" key="GridCell.Tab.0.bottom/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1617985504976" />
     <state width="1876" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1621932287637" />
-    <state width="1876" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622018062898" />
-    <state width="1876" height="239" key="GridCell.Tab.0.center" timestamp="1622018062898">
+    <state width="1876" height="239" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622021529613" />
+    <state width="1876" height="239" key="GridCell.Tab.0.center" timestamp="1622021529613">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="279" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621923123904" />
@@ -159,8 +159,8 @@
     <state width="1876" height="276" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617816629016" />
     <state width="1556" height="215" key="GridCell.Tab.0.center/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1617985504976" />
     <state width="1876" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1621932287637" />
-    <state width="1876" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622018062898" />
-    <state width="1876" height="239" key="GridCell.Tab.0.left" timestamp="1622018062898">
+    <state width="1876" height="239" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622021529613" />
+    <state width="1876" height="239" key="GridCell.Tab.0.left" timestamp="1622021529613">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="279" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621923123904" />
@@ -169,8 +169,8 @@
     <state width="1876" height="276" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617816629016" />
     <state width="1556" height="215" key="GridCell.Tab.0.left/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1617985504976" />
     <state width="1876" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1621932287637" />
-    <state width="1876" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622018062898" />
-    <state width="1876" height="239" key="GridCell.Tab.0.right" timestamp="1622018062898">
+    <state width="1876" height="239" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622021529613" />
+    <state width="1876" height="239" key="GridCell.Tab.0.right" timestamp="1622021529613">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="279" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1621923123905" />
@@ -179,7 +179,7 @@
     <state width="1876" height="276" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617816629017" />
     <state width="1556" height="215" key="GridCell.Tab.0.right/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1617985504976" />
     <state width="1876" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1621932287637" />
-    <state width="1876" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622018062898" />
+    <state width="1876" height="239" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622021529613" />
     <state width="1876" height="121" key="GridCell.Tab.1.bottom" timestamp="1622017992816">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -218,24 +218,24 @@
     </state>
     <state x="2376" y="190" key="run.anything.popup/1920.0.1600.860/0.0.1920.1040@1920.0.1600.860" timestamp="1617985059384" />
     <state x="547" y="230" key="run.anything.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1620825919803" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1621952092673">
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622020854601">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" key="search.everywhere.popup/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1617813572292" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1621780457678" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1621952092673" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1622020854601" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/GUI/BoardGUI.java</url>
-          <line>472</line>
+          <line>489</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/GUI/BoardGUI.java</url>
-          <line>471</line>
+          <line>488</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
