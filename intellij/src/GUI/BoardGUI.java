@@ -6,22 +6,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static GUI.BoardGUI.turn.BLACK;
-import static GUI.BoardGUI.turn.WHITE;
-
 public class BoardGUI extends JPanel implements ActionListener {
 
-    enum turn {
-        BLACK, WHITE;
-    }
-
-    turn currentTurn;
-
-    boolean isTurnOver = false;
-
-    public BoardGUI() {
-        currentTurn = WHITE; //dama il bianco
-    }
 
     private JPanel scacchiera = new JPanel();
     private JPanel score = new JPanel(new BorderLayout());
@@ -36,11 +22,15 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     boolean primo = false;
     boolean secondo = false;
+    boolean giocatoreBianco = true;
 
     private int aux1;
     private int aux2;
 
     private Container c;
+
+
+    boolean check = true;
 
 
     public void boardDisplay() {
@@ -165,6 +155,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             }
         }
     }
+
 
     private void setLabel() {
 
@@ -374,11 +365,11 @@ public class BoardGUI extends JPanel implements ActionListener {
         return (disp);
     }
 
+
     private boolean turnWhite(ActionEvent e) {
         boolean disp = false;
 
         JButton source = (JButton) e.getSource();
-
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -532,19 +523,20 @@ public class BoardGUI extends JPanel implements ActionListener {
                         }
                     }
 
-                        else if (posizioni[i][j] == 'b') {
-                            JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                            posizioni[aux1][aux2] = 'w';
-                            primo = false;
-                            boardUpdate();
-                            disp = false;
+                    else if (posizioni[i][j] == 'b') {
+                        JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                        posizioni[aux1][aux2] = 'w';
+                        primo = false;
+                        boardUpdate();
+                        disp = false;
 
-                        }
                     }
                 }
             }
+        }
         return (disp);
-}
+    }
+
 
     private void resetBool() {
 
@@ -618,7 +610,84 @@ public class BoardGUI extends JPanel implements ActionListener {
     boolean gig;
 
 
-    private void nextTurn() {
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (comp == false) {
+
+            if (cont < 2) {
+                if (turnBlack(e) == true) {
+                    cont++;
+                } else {
+                    cont--;
+
+                    if (cont < 0) {
+                        cont = 0;
+                    }
+                }
+
+                System.out.println(cont + " " + comp);
+
+            }
+
+
+            if (cont == 2) {
+                comp = true;
+                cont = 3;
+
+            }
+
+            System.out.println(cont + " " + comp);
+        }
+
+
+
+
+
+        else if (cont < 5 && cont > 2) {
+
+            if (comp == true) {
+
+
+                if (turnWhite(e) == true) {
+
+                    cont++;
+
+                } else {
+
+                    cont--;
+
+                    if (cont < 3) {
+
+                        cont = 3;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if (cont == 5) {
+
+            cont = 0;
+            comp = false;
+
+        }
+
+        System.out.println(cont + " " + comp);
+
+        return;
+
+    }
+
+}
+
+
+   /* private void nextTurn() {
         if (currentTurn == BLACK) {
             currentTurn = WHITE;
             lb.setText("Turno Giocatore Bianco\n".toUpperCase());
@@ -632,7 +701,7 @@ public class BoardGUI extends JPanel implements ActionListener {
      *  non so se è chiamato da nero o bianco => devo capirlo e controllarlo io
      * @param e
      */
-    @Override
+    /*@Override
     public void actionPerformed(ActionEvent e) {
 
         switch (currentTurn) {
@@ -709,5 +778,6 @@ public class BoardGUI extends JPanel implements ActionListener {
             comp = false;
             lb.setText("Turno Giocatore Nero\n");
         } */
-    }
-}
+
+
+
