@@ -197,9 +197,10 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         user2.setNome(tw.getText());
 
 
-        if (user1.getNome() == null || user2.getNome() == null) {
+        if (tb.getText().equals("") || tw.getText().equals("") ) {
 
             JOptionPane.showMessageDialog(null, "Devi riempire i campi", "ERRORE", JOptionPane.INFORMATION_MESSAGE);
+            logCheck = false;
 
         }
 
@@ -208,6 +209,7 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
             JOptionPane.showMessageDialog(null, "I nomi inseriti sono uguali", "ERRORE", JOptionPane.INFORMATION_MESSAGE);
             tb.setText(null);
             tw.setText(null);
+            logCheck = false;
 
 
         } else {
