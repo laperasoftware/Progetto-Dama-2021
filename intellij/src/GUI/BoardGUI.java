@@ -20,18 +20,15 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     private JLabel lb = new JLabel("");
 
-    boolean primo = false;
-    boolean secondo = false;
-    boolean giocatoreBianco = true;
+    private boolean primo = false;
+    private boolean secondo = false;
+    private boolean comp = false;
 
     private int aux1;
     private int aux2;
+    private int cont = 0;
 
     private Container c;
-
-
-    boolean check = true;
-
 
     public void boardDisplay() {
 
@@ -155,7 +152,6 @@ public class BoardGUI extends JPanel implements ActionListener {
             }
         }
     }
-
 
     private void setLabel() {
 
@@ -365,7 +361,6 @@ public class BoardGUI extends JPanel implements ActionListener {
         return (disp);
     }
 
-
     private boolean turnWhite(ActionEvent e) {
         boolean disp = false;
 
@@ -537,13 +532,11 @@ public class BoardGUI extends JPanel implements ActionListener {
         return (disp);
     }
 
-
     private void resetBool() {
 
         primo = false;
         secondo = false;
     }
-
 
     private void vittoriaGB() {
 
@@ -574,7 +567,6 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     }
 
-
     private void vittoriaGW() {
 
         int cont = 0;
@@ -603,11 +595,6 @@ public class BoardGUI extends JPanel implements ActionListener {
 
 
     }
-
-    int cont = 0;
-
-    boolean comp = false;
-    boolean gig;
 
 
 

@@ -1,9 +1,6 @@
 package GUI;
 
 
-import java.io.*;
-import java.util.*;
-import java.awt.Toolkit.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,16 +13,15 @@ public class LoginGUI extends JFrame implements ActionListener {
     private JFrame frame = new JFrame();
     private JPanel p = new JPanel();
 
+    Container c;
+
+    private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
+
     private JLabel lb1 = new JLabel("DAMA");
     private JLabel lb2 = new JLabel("Alessandro Orlando");
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
-
     private JLabel lb4 = new JLabel("ENTRA");
-
-
-    private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
     private JLabel background = new JLabel("",img,JLabel.CENTER);
-
 
     private JButton enter = new JButton();
 
@@ -33,6 +29,7 @@ public class LoginGUI extends JFrame implements ActionListener {
     public LoginGUI(){
 
         super("LogIn");
+         c = frame.getContentPane();
 
         setFrame();
         setPanel();

@@ -201,7 +201,7 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
             user1.setColore(1);
             user2.setColore(0);
 
-            JOptionPane.showMessageDialog(null, "Log Completato", "AVVIO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Login Completato", "AVVIO", JOptionPane.INFORMATION_MESSAGE);
 
             logCheck = true;
 
