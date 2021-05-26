@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -40,11 +39,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private int cont = 0;
 
     private Container c;
-
-
-
-
-
 
 
     public void boardDisplay() {
