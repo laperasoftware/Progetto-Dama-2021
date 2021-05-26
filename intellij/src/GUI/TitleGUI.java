@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
 public class TitleGUI extends JFrame implements ActionListener {
 
     private JFrame frame = new JFrame();
@@ -15,31 +14,33 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     Container c;
 
-    private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
+    //private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
 
     private JLabel lb1 = new JLabel("DAMA");
     private JLabel lb2 = new JLabel("Alessandro Orlando");
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
     private JLabel lb4 = new JLabel("ENTRA");
-    private JLabel background = new JLabel("",img,JLabel.CENTER);
+   // private JLabel background = new JLabel("",img,JLabel.CENTER);
 
     private JButton enter = new JButton();
+
+    ImagePanel panel = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.png").getImage());
 
 
     public TitleGUI(){
 
         super("LogIn");
 
+
         setFrame();
         setPanel();
-        setSfondo();
+        //setSfondo();
         setLabel();
         setButton();
 
-        c = frame.getContentPane();
+        //c = frame.getContentPane();
 
     }
-
 
 
     private void setFrame(){
@@ -59,10 +60,12 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     private void setPanel(){
 
-        frame.add(p);
+        //frame.add(p);
 
-        p.setLayout(null);
+        //p.setLayout(null);
 
+        frame.getContentPane().add(panel);
+        //panel.setLayout(null);
 
 
 
@@ -70,19 +73,15 @@ public class TitleGUI extends JFrame implements ActionListener {
 
 
 
-    private void setSfondo(){
+   /* private void setSfondo(){
 
         background.setBounds(0,0,1650,1080);
-        p.add(background);
+        panel.add(background);
 
 
 
 
-    }
-
-
-
-
+    }*/
 
 
 
@@ -109,13 +108,12 @@ public class TitleGUI extends JFrame implements ActionListener {
 
 
 
-        p.add(lb1);
-        p.add(lb2);
-        p.add(lb3);
-        p.add(lb4);
+        panel.add(lb1);
+        panel.add(lb2);
+        panel.add(lb3);
+        panel.add(lb4);
 
     }
-
 
 
 
@@ -129,7 +127,7 @@ public class TitleGUI extends JFrame implements ActionListener {
 
 
 
-        p.add(enter);
+        panel.add(enter);
 
 
     }
