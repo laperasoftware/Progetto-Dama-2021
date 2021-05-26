@@ -1,5 +1,5 @@
 package GUI;
-
+import User.User;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -30,12 +30,13 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
     private JButton enter = new JButton();
 
 
-    private JTextField tb = new JTextField();
-    private JTextField tw = new JTextField();
+    private JTextField tb = new JTextField(null);
+    private JTextField tw = new JTextField(null);
 
 
-    private user.User user1 = new user.User();
-    private user.User user2 = new user.User();
+
+    private User user1 = new User();
+    private User user2 = new User();
 
 
     FileWriter fWR = null;
@@ -51,11 +52,17 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         super("LogIn");
 
 
+
+
         setFrame();
         setPanel();
         setSfondo();
         setLabel();
         setButton();
+
+
+
+
         setTextField();
 
 
@@ -132,8 +139,6 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         lb4.setBounds(880,520,800,250);
         lb4.setFont(new Font("Stencil", Font.BOLD, 46));
 
-
-
         p.add(lb1);
         p.add(lbb);
         p.add(lbw);
@@ -158,6 +163,10 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         p.add(tw);
 
 
+        tb.setText(null);
+        tw.setText(null);
+
+
     }
 
 
@@ -176,7 +185,6 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
         p.add(enter);
 
-
     }
 
 
@@ -188,15 +196,21 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         user1.setNome(tb.getText());
         user2.setNome(tw.getText());
 
-        if((user1.getNome().equals(user2.getNome()) == true)){
+
+        if (user1.getNome() == null || user2.getNome() == null) {
+
+            JOptionPane.showMessageDialog(null, "Devi riempire i campi", "ERRORE", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+
+        else if (user1.getNome().equals(user2.getNome()) == true) {
 
             JOptionPane.showMessageDialog(null, "I nomi inseriti sono uguali", "ERRORE", JOptionPane.INFORMATION_MESSAGE);
             tb.setText(null);
             tw.setText(null);
 
 
-        }
-        else{
+        } else {
 
             user1.setColore(1);
             user2.setColore(0);
@@ -207,7 +221,7 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
         }
 
-        if(logCheck == true){
+        if (logCheck == true) {
 
             frame.dispose();
             BoardGUI b = new BoardGUI();
@@ -215,13 +229,9 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         }
 
 
-
-
-
-
-
-
     }
+
+
 
 
     @Override

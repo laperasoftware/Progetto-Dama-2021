@@ -1,8 +1,8 @@
-package user;
+package User;
 
 public class User {
 
-    private String nome;
+    private String nome = null;
 
 
     private int colore;

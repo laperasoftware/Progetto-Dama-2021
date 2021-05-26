@@ -1,5 +1,6 @@
 package GUI;
 
+import User.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,8 +15,8 @@ import java.io.FileReader;
 
 public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
-    private user.User u1 = new user.User();
-    private user.User u2 = new user.User();
+    private User u1 = new User();
+    private User u2 = new User();
 
     private String temp;
 
