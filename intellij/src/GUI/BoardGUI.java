@@ -240,7 +240,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                         }
 
                         else if(i == aux1 && j == aux2){
-                            JOptionPane.showMessageDialog(null, "Pedina riposizionata alla posizione iniziale", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Pedina riposizionata alla posizione iniziale", "MOSSA", JOptionPane.INFORMATION_MESSAGE);
                             posizioni[i][j] = 'b';
                             primo = false;
                             secondo = false;
@@ -418,7 +418,7 @@ public class BoardGUI extends JPanel implements ActionListener {
                         }
 
                         else if(i == aux1 && j == aux2){
-                            JOptionPane.showMessageDialog(null, "Pedina riposizionata alla posizione iniziale", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Pedina riposizionata alla posizione iniziale", "MOSSA", JOptionPane.INFORMATION_MESSAGE);
                             posizioni[i][j] = 'w';
                             primo = false;
                             secondo = false;
