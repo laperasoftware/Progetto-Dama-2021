@@ -24,7 +24,7 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     private JButton enter = new JButton();
 
-    ImagePanel panel = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.png").getImage());
+    ImagePanel panel = new ImagePanel(new ImageIcon(/*"IMG/Sfondo_Log_In.png"*/).getImage());
 
 
     public TitleGUI(){
