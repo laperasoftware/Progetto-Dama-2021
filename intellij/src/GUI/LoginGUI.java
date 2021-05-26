@@ -29,13 +29,14 @@ public class LoginGUI extends JFrame implements ActionListener {
     public LoginGUI(){
 
         super("LogIn");
-         c = frame.getContentPane();
 
         setFrame();
         setPanel();
         setSfondo();
         setLabel();
         setButton();
+
+        c = frame.getContentPane();
 
     }
 
