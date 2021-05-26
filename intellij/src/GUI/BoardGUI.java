@@ -155,7 +155,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
     private void setLabel() {
 
-        lb.setText("TURNO G1");
+        lb.setText("TURNO GIOCATORE BIANCO");
         lb.setForeground(new Color(0, 0, 0));
         lb.setFont(new Font("Consalas", Font.BOLD, 30));
 
@@ -615,14 +615,13 @@ public class BoardGUI extends JPanel implements ActionListener {
     }
 
 
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (comp == false) {
 
             if (cont < 2) {
+
                 if (turnWhite(e) == true) {
                     cont++;
                 } else {
@@ -643,7 +642,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             if (cont == 2) {
                 comp = true;
                 cont = 3;
-
+                lb.setText("TURNO GIOCATORE NERO");
             }
 
             System.out.println(cont + " " + comp);
@@ -684,6 +683,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
             cont = 0;
             comp = false;
+            lb.setText("TURNO GIOCATORE BIANCO");
 
         }
 
