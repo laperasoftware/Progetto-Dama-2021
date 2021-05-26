@@ -655,6 +655,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                 comp = true;
                 cont = 3;
                 lb.setText("TURNO: " + u1.getNome().toUpperCase());
+                lb.setForeground(Color.WHITE);
+                score.setBackground(Color.BLACK);
             }
 
             System.out.println(cont + " " + comp);
@@ -696,6 +698,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
             cont = 0;
             comp = false;
             lb.setText("TURNO: " + u2.getNome().toUpperCase());
+            lb.setForeground(Color.BLACK);
+            score.setBackground(Color.WHITE);
 
         }
 
