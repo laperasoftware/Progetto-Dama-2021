@@ -1,13 +1,13 @@
 package main;
 
-import GUI.LoginGUI;
+import GUI.TitleGUI;
 
 
 public class Main {
 
     public static void main(String args[]) {
 
-        LoginGUI gui = new LoginGUI();
+        TitleGUI gui = new TitleGUI();
 
     }
 }

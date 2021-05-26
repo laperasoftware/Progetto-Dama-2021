@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 
 
-public class LoginGUI extends JFrame implements ActionListener {
+public class TitleGUI extends JFrame implements ActionListener {
 
     private JFrame frame = new JFrame();
     private JPanel p = new JPanel();
@@ -26,7 +26,7 @@ public class LoginGUI extends JFrame implements ActionListener {
     private JButton enter = new JButton();
 
 
-    public LoginGUI(){
+    public TitleGUI(){
 
         super("LogIn");
 
