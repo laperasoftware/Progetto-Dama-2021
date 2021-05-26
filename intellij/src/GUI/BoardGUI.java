@@ -565,7 +565,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
         if (cont == 0) {
 
-            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 1", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 2", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose();
 
 
@@ -595,7 +595,7 @@ public class BoardGUI extends JPanel implements ActionListener {
 
         if (cont == 0) {
 
-            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 2", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 1", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose();
 
 
@@ -618,7 +618,7 @@ public class BoardGUI extends JPanel implements ActionListener {
         if (comp == false) {
 
             if (cont < 2) {
-                if (turnBlack(e) == true) {
+                if (turnWhite(e) == true) {
                     cont++;
                 } else {
                     cont--;
@@ -629,6 +629,8 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
 
                 System.out.println(cont + " " + comp);
+
+                vittoriaGW();
 
             }
 
@@ -651,7 +653,7 @@ public class BoardGUI extends JPanel implements ActionListener {
             if (comp == true) {
 
 
-                if (turnWhite(e) == true) {
+                if (turnBlack(e) == true) {
 
                     cont++;
 
@@ -668,6 +670,8 @@ public class BoardGUI extends JPanel implements ActionListener {
                 }
 
             }
+
+            vittoriaGB();
 
         }
 
