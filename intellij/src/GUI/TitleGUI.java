@@ -14,7 +14,6 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     Container c;
 
-    //private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
 
     private JLabel lb1 = new JLabel("DAMA");
     private JLabel lb2 = new JLabel("Alessandro Orlando");

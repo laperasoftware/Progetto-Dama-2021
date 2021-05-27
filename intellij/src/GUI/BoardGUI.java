@@ -17,6 +17,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private User u1 = new User();
     private User u2 = new User();
 
+
     private String temp;
 
     private JPanel scacchiera = new JPanel();
@@ -40,8 +41,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private int aux2;
     private int cont = 0;
 
+
     private Container c;
 
+    private static int checkVittoria = 1;
+
+    public static int getCheckVittoria() {
+
+        return checkVittoria;
+    }
 
     public void boardDisplay() {
 
@@ -49,12 +57,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         c = frame.getContentPane();
         c.setLayout(new BorderLayout());
 
+
         setScoreBoard();
         setBoard();
 
         boardUpdate();
 
         setLabel();
+
+
+
 
     }
 
@@ -1166,8 +1178,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         if (cont == 0) {
 
-            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE " + u2.getNome(), "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose();
+
+
+            checkVittoria = 2;
+
+            VictoryGUI v = new VictoryGUI();
 
 
         }
@@ -1196,8 +1212,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         if (cont == 0) {
 
-            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 1", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
+
             frame.dispose();
+
+            checkVittoria = 1;
+
+            VictoryGUI v = new VictoryGUI();
 
 
         }
