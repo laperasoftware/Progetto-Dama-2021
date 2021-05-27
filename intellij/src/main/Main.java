@@ -10,7 +10,6 @@ public class Main {
 
         TitleGUI gui = new TitleGUI();
 
-        VictoryGUI v = new VictoryGUI();
 
 
     }

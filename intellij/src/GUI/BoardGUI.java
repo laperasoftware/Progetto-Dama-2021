@@ -44,7 +44,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     private Container c;
 
-    private static int checkVittoria = 1;
+    private static int checkVittoria = 0;
 
     public static int getCheckVittoria() {
 
