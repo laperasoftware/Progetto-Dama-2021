@@ -39,8 +39,6 @@ public class TitleGUI extends JFrame implements ActionListener {
         setLabel();
         setButton();
 
-        //c = frame.getContentPane();
-
     }
 
 

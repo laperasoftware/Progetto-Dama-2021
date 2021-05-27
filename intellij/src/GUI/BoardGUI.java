@@ -64,6 +64,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     }
 
+
     private void setBoard() {
 
         frame.setSize(800, 800);
@@ -174,6 +175,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         }
     }
 
+
     private void setLabel() {
 
         lb.setText("INIZIA IL BIANCO");
@@ -182,6 +184,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     }
+
 
     public void setScoreBoard() {
 
@@ -194,6 +197,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     }
+
 
     public boolean canDoubleBlack(int i, int j){
         boolean doppia = false;
@@ -247,6 +251,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         }
     }
+
 
     private boolean turnBlack(ActionEvent e) {
 
@@ -687,6 +692,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         }
         return (disp);
     }
+
 
     private boolean turnWhite(ActionEvent e) {
         boolean disp = false;
@@ -1138,11 +1144,13 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         return (disp);
     }
 
+
     private void resetBool() {
 
         primo = false;
         secondo = false;
     }
+
 
     private void vittoriaGB() {
 
@@ -1177,6 +1185,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     }
+
 
     private void vittoriaGW() {
 
