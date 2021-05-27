@@ -46,21 +46,11 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
         super("LogIn");
 
-
-
-
         setFrame();
         setPanel();
         setLabel();
         setButton();
-
-
-
-
         setTextField();
-
-
-
 
     }
 
@@ -186,6 +176,13 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
 
         } else {
+
+
+            if(tb.getText().equals("Nino") || tb.getText().equals("NINO") || tb.getText().equals("nino")){
+
+                JOptionPane.showMessageDialog(null, "QUEI RAGAZZI DELLA CURA B", "FORZA NAPOLI", JOptionPane.INFORMATION_MESSAGE);
+
+            }
 
             user1.setColore(1);
             user2.setColore(0);
