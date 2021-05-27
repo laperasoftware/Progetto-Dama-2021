@@ -42,6 +42,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     private Container c;
 
+    private static int checkVittoria = 2;
+
+    public static int getCheckVittoria() {
+
+        return checkVittoria;
+    }
 
     public void boardDisplay() {
 
@@ -1162,6 +1168,11 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
             frame.dispose();
 
 
+            checkVittoria = 2;
+
+            VictoryGUI v = new VictoryGUI();
+
+
         }
 
 
@@ -1174,7 +1185,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                if (posizioni[i][j] == 'b') {
+                if (posizioni[i][j] == 'b' || posizioni[i][j] == 'B' ) {
 
 
                     cont++;
@@ -1187,9 +1198,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         if (cont == 0) {
 
-            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE 1", "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "HA VINTO IL GIOCATORE " + u1.getNome(), "VITTORIA", JOptionPane.INFORMATION_MESSAGE);
             frame.dispose();
 
+            checkVittoria = 1;
+
+            VictoryGUI v = new VictoryGUI();
 
         }
 
