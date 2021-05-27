@@ -14,17 +14,11 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
     private JFrame frame = new JFrame();
 
-    private JPanel p = new JPanel();
-
     private JLabel lb1 = new JLabel("DAMA");
     private JLabel lbb = new JLabel("Nome del Giocatore Nero");
     private JLabel lbw = new JLabel("Nome del Giocatore Bianco");
 
     private JLabel lb4 = new JLabel("ENTRA");
-
-
-    private ImageIcon img = new ImageIcon("Sfondo_Log_In.png");
-    private JLabel background = new JLabel("",img,JLabel.CENTER);
 
 
     private JButton enter = new JButton();
@@ -33,6 +27,7 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
     private JTextField tb = new JTextField(null);
     private JTextField tw = new JTextField(null);
 
+    ImagePanel p = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
 
 
     private User user1 = new User();
@@ -56,7 +51,6 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
         setFrame();
         setPanel();
-        setSfondo();
         setLabel();
         setButton();
 
@@ -91,32 +85,11 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
 
     private void setPanel(){
 
-        frame.add(p);
-
-        p.setLayout(null);
-
-
-
+            frame.getContentPane().add(p);
 
     }
 
-
-
-    private void setSfondo(){
-
-        background.setBounds(0,0,1650,1080);
-        p.add(background);
-
-
-
-
-    }
-
-
-
-
-
-
+    
 
 
     private void setLabel(){

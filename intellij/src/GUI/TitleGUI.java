@@ -20,11 +20,14 @@ public class TitleGUI extends JFrame implements ActionListener {
     private JLabel lb2 = new JLabel("Alessandro Orlando");
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
     private JLabel lb4 = new JLabel("ENTRA");
-   // private JLabel background = new JLabel("",img,JLabel.CENTER);
 
     private JButton enter = new JButton();
 
-    ImagePanel panel = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.png").getImage());
+<<<<<<< HEAD
+    ImagePanel panel = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
+=======
+    ImagePanel panel = new ImagePanel(new ImageIcon(/*"IMG/Sfondo_Log_In.png"*/).getImage());
+>>>>>>> d2e7444b363af228c9bd37152d60025699df2597
 
 
     public TitleGUI(){
@@ -34,7 +37,6 @@ public class TitleGUI extends JFrame implements ActionListener {
 
         setFrame();
         setPanel();
-        //setSfondo();
         setLabel();
         setButton();
 
@@ -60,28 +62,14 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     private void setPanel(){
 
-        //frame.add(p);
-
-        //p.setLayout(null);
 
         frame.getContentPane().add(panel);
-        //panel.setLayout(null);
-
-
 
     }
 
 
 
-   /* private void setSfondo(){
 
-        background.setBounds(0,0,1650,1080);
-        panel.add(background);
-
-
-
-
-    }*/
 
 
 
@@ -89,22 +77,24 @@ public class TitleGUI extends JFrame implements ActionListener {
     private void setLabel(){
 
         lb1.setBounds(820,90,800,250);
-        lb1.setFont(new Font("Stencil", Font.BOLD, 96));
+        lb1.setFont(new Font("Stencil", Font.BOLD, 100));
+        lb1.setForeground(Color.BLACK);
 
 
 
         lb2.setBounds(1500, 721, 842,262);
         lb2.setFont(new Font("Arial", Font.BOLD, 26));
-
+        lb2.setForeground(Color.BLACK);
 
 
         lb3.setBounds(1500, 761, 842,262);
         lb3.setFont(new Font("Arial", Font.BOLD, 26));
-
+        lb3.setForeground(Color.BLACK);
 
 
         lb4.setBounds(880,520,800,250);
         lb4.setFont(new Font("Stencil", Font.BOLD, 46));
+        lb4.setForeground(Color.BLACK);
 
 
 
@@ -119,7 +109,7 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     private void setButton(){
 
-        enter.setBounds(800,290,300,300);
+        enter.setBounds(835,330,250,250);
         enter.addActionListener(this);
         enter.setBackground(new Color(255,255,255));
         enter.setVisible(true);
