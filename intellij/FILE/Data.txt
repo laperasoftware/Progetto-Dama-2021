@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-rgs
-hy
-=======
-Nino
-we
->>>>>>> parent of 0b73e6a (New Victory)
+gb
+h
