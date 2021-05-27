@@ -253,7 +253,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                 if (source == pulsanti[i][j]) {
                     if (primo == false && secondo == false) {
 
-
                         if (posizioni[i][j] != 'b' && posizioni[i][j] != 'B') {
 
                             JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine nere", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
@@ -268,7 +267,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 doppiaBlack = false;
                             }
 
-                            else if( posizioni[i][j] == 'W'){
+                            else if( posizioni[i][j] == 'B'){
                                 doppiaBlack = true;
                             }
 
@@ -285,7 +284,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                     else if (primo == true) {
 
-                        if (posizioni[i][j] == 'w' && posizioni[i][j] == 'W') {
+                        if (posizioni[i][j] == 'w' || posizioni[i][j] == 'W') {
 
                             if(doppiaBlack == false){
                                 posizioni[aux1][aux2] = 'b';
@@ -348,8 +347,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
                                 }
                             }
-
-
                         }
 
                         else if ((posizioni[i][j] == '-' && secondo == false)) {
@@ -373,7 +370,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                             }
 
-                            else if ((i == aux1 + 2) && (j == aux2 + 2)){
+                            else if((i == aux1 + 2) && (j == aux2 + 2)){
                                 if(j < 6 && j > 0) {
 
 
@@ -383,6 +380,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                             posizioni[aux1 + 2][aux2 +2] = 'b';
                                             if(canDoubleBlack(i,j) == true){
                                                 posizioni[aux1 + 2][aux2 +2] = 'B';
+                                                doppiaBlack = true;
                                             }
                                         }
 
@@ -406,6 +404,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                             posizioni[aux1 + 2][aux2 +2] = 'b';
                                             if(canDoubleBlack(i,j) == true){
                                                 posizioni[aux1 + 2][aux2 +2] = 'B';
+                                                doppiaBlack = true;
                                             }
                                         }
 
@@ -429,6 +428,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                             posizioni[aux1 + 2][aux2 +2] = 'b';
                                             if(canDoubleBlack(i,j) == true){
                                                 posizioni[aux1 + 2][aux2 +2] = 'B';
+                                                doppiaBlack = true;
                                             }
                                         }
 
@@ -475,7 +475,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 if(j == 7 || j == 6){
                                     if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
 
-                                        posizioni[i][j] = 'b';
+                                            if(doppiaBlack == false){
+                                                posizioni[aux1 + 2][aux2 - 2] = 'b';
+                                                if(canDoubleBlack(i,j) == true){
+                                                    posizioni[aux1 + 2][aux2 - 2] = 'B';
+                                                }
+                                            }
+
+                                            else{
+                                                posizioni[aux1 + 2][aux2 -2] = 'B';
+                                            }
                                         posizioni[aux1 + 1][aux2 - 1] = '-';
                                         pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
                                         boardUpdate();
@@ -488,7 +497,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 else if(j == 0){
                                     if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
 
-                                        posizioni[aux1 + 2][aux2 - 2] = 'b';
+                                            if(doppiaBlack == false){
+                                                posizioni[aux1 + 2][aux2 - 2] = 'b';
+                                                if(canDoubleBlack(i,j) == true){
+                                                    posizioni[aux1 + 2][aux2 - 2] = 'B';
+                                                }
+                                            }
+
+                                            else{
+                                                posizioni[aux1 + 2][aux2 -2] = 'B';
+                                            }
                                         posizioni[aux1 + 1][aux2 - 1] = '-';
                                         pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
                                         boardUpdate();
@@ -564,7 +582,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 if(j < 6 && j > 0) {
 
 
-                                    if (posizioni[aux1 - 1][aux2 - 1] == 'w') {
+                                    if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
 
                                         if(doppiaBlack == false){
                                             posizioni[aux1 - 2][aux2 + 2] = 'b';
@@ -622,9 +640,17 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             }
                         }
 
-                        else if (posizioni[i][j] == 'b') {
+                        else if (posizioni[i][j] == 'w') {
                             JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                            posizioni[aux1][aux2] = 'w';
+
+                            if(doppiaBlack == true){
+                                posizioni[aux1][aux2] = 'B';
+                            }
+
+                            else{
+                                posizioni[aux1][aux2] = 'b';
+                            }
+
                             primo = false;
                             boardUpdate();
                             disp = false;
@@ -719,7 +745,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                         else if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
-                            if( doppiaWhite == false){
+                            if(doppiaWhite == false){
                                 JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                                 posizioni[aux1][aux2] = 'w';
                                 primo = false;
@@ -751,12 +777,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                         }
 
-
                         else if ((posizioni[i][j] == '-' && secondo == false)) {
 
                             if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
 
-                                if(canDoubleWhite( i,  j) == true){
+                                if(canDoubleWhite( i,  j) == true || doppiaWhite == true){
+                                    posizioni[i][j] = 'W';
                                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckB_Dama.png"));
                                     doppiaWhite = true;
                                     disp = true;
@@ -775,7 +801,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                              if ((i == aux1 - 2) && (j == aux2 + 2)){
                                 if(j < 6 && j > 0) {
 
-                                    if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
+                                    if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
 
                                         if(doppiaWhite == false){
                                             posizioni[aux1 - 2][aux2 + 2] = 'w';
