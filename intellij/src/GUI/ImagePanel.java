@@ -11,17 +11,20 @@ import javax.swing.*;
         }
 
         public ImagePanel(Image img) {
+
             this.img = img;
 
+
             Dimension size = new Dimension(1650,1080);
-            //setPreferredSize(size);
-            //setMinimumSize(size);
-            //setMaximumSize(size);
+            setPreferredSize(size);
+            setMinimumSize(size);
+            setMaximumSize(size);
             setSize(size);
             setLayout(null);
 
 
         }
+
         public void paintComponent(Graphics g) {
             g.drawImage(img, 0, 0, null);
         }

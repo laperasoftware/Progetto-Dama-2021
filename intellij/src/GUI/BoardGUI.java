@@ -67,6 +67,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         frame.setVisible(true);
         frame.setResizable(false);
 
+
         scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
 
 
