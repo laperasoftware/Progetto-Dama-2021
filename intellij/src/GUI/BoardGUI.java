@@ -799,7 +799,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                             }
 
-                             if ((i == aux1 - 2) && (j == aux2 + 2)){
+                            if ((i == aux1 - 2) && (j == aux2 + 2)){
                                 if(j < 6 && j > 0) {
 
                                     if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
@@ -940,7 +940,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 }
                             }
 
-                            else if((i == aux1 - 2) && (j == aux2 - 2)){
+                            if((i == aux1 - 2) && (j == aux2 - 2)){
                                 if(j < 6 && j > 0) {
 
 
