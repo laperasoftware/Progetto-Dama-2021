@@ -88,7 +88,7 @@ public class TitleGUI extends JFrame implements ActionListener {
         lb3.setForeground(Color.BLACK);
 
 
-        lb4.setBounds(880,520,800,250);
+        lb4.setBounds(880,600,800,250);
         lb4.setFont(new Font("Stencil", Font.BOLD, 46));
         lb4.setForeground(Color.BLACK);
 
@@ -105,7 +105,7 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     private void setButton(){
 
-        enter.setBounds(835,330,250,250);
+        enter.setBounds(835,400,250,250);
         enter.addActionListener(this);
         enter.setBackground(new Color(255,255,255));
         enter.setVisible(true);

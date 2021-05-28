@@ -42,7 +42,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     private JLabel lb = new JLabel("");
 
-
+    private JLabel color = new JLabel("");
 
 
 
@@ -106,9 +106,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         setPannelloSinistra();
 
-
         score.setBackground(new Color(182, 143, 66));
-
 
 
         for (int i = 0; i < 8; i++) {
@@ -219,12 +217,20 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         lb.setText("INIZIA IL BIANCO");
         lb.setForeground(Color.BLACK);
 
-        lb.setFont(new Font("Stencil", Font.BOLD, 30));
+        lb.setFont(new Font("Stencil", Font.BOLD, 40));
 
-        lb.setBounds(1500,12, 300,300);
+        lb.setBounds(1200,12, 900,300);
 
         lb.setHorizontalAlignment(JLabel.CENTER);
 
+
+        color.setForeground(Color.BLACK);
+
+        color.setFont(new Font("Stencil", Font.BOLD, 70));
+
+        color.setBounds(1200,80, 900,300);
+
+        color.setHorizontalAlignment(JLabel.CENTER);
 
 
     }
@@ -235,6 +241,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     public void setScoreBoard() {
 
         frame.add(lb);
+
+        frame.add(color);
 
         score.setPreferredSize(new Dimension(100, 100));
         c.add(score, BorderLayout.SOUTH);
@@ -890,7 +898,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                 comp = true;
                 cont = 3;
                 lb.setText("TURNO DI " + u1.getNome().toUpperCase());
-
+                color.setText("NERO");
 
 
             }
@@ -929,6 +937,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
             cont = 0;
             comp = false;
             lb.setText("TURNO DI " + u2.getNome().toUpperCase());
+            color.setText("BIANCO");
+
 
         }
 
