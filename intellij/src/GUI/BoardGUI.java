@@ -21,17 +21,17 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private String temp;
 
     private JPanel scacchiera = new JPanel();
-    private JPanel score = new JPanel(new BorderLayout());
+
+
+    //private JPanel score = new JPanel(new BorderLayout());
 
 
     ImagePanel sinistra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Sinistra.jpg").getImage());
     ImagePanel nord = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
     ImagePanel destra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Destra.jpg").getImage());
 
+    ImagePanel score = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Sud.jpg").getImage());
 
-   /* private JPanel sinistra = new JPanel();
-    private JPanel nord = new JPanel();
-    private JPanel destra = new JPanel();*/
 
 
     private JButton pulsanti[][] = new JButton[8][8];
@@ -41,6 +41,10 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private JFrame frame = new JFrame();
 
     private JLabel lb = new JLabel("");
+
+
+
+
 
     private boolean primo = false;
     private boolean secondo = false;
@@ -78,7 +82,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
 
-
     }
 
 
@@ -102,6 +105,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         setPannelloDestra();
 
         setPannelloSinistra();
+
+
+        score.setBackground(new Color(182, 143, 66));
 
 
 
@@ -159,6 +165,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         }
 
         scacchiera.setPreferredSize(new Dimension(600, 600));
+        scacchiera.setBackground(new Color(160, 144, 54));
+
+
         c.add(scacchiera, BorderLayout.CENTER);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -203,21 +212,29 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     }
 
 
+
+
     private void setLabel() {
 
         lb.setText("INIZIA IL BIANCO");
-        lb.setForeground(new Color(0, 0, 0));
-        lb.setFont(new Font("Consalas", Font.BOLD, 30));
+        lb.setForeground(Color.BLACK);
+
+        lb.setFont(new Font("Stencil", Font.BOLD, 30));
+
+        lb.setBounds(1500,12, 300,300);
+
+        lb.setHorizontalAlignment(JLabel.CENTER);
+
 
 
     }
 
 
+
+
     public void setScoreBoard() {
 
-        lb.setHorizontalAlignment(JLabel.CENTER);
-
-        score.add(lb);
+        frame.add(lb);
 
         score.setPreferredSize(new Dimension(100, 100));
         c.add(score, BorderLayout.SOUTH);
@@ -1179,8 +1196,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     }
 
 
+
+
+
+
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
+
 
         if (comp == false) {
 
@@ -1188,6 +1212,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                 if (turnWhite(e) == true) {
                     cont++;
+
+
                 } else {
                     cont--;
 
@@ -1206,9 +1232,10 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
             if (cont == 2) {
                 comp = true;
                 cont = 3;
-                lb.setText("TURNO: " + u1.getNome().toUpperCase());
-                lb.setForeground(Color.WHITE);
-                score.setBackground(Color.BLACK);
+                lb.setText("TURNO DI " + u1.getNome().toUpperCase());
+
+
+
             }
 
             System.out.println(cont + " " + comp);
@@ -1218,6 +1245,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
                 if (turnBlack(e) == true) {
+
 
                     cont++;
 
@@ -1243,9 +1271,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
             cont = 0;
             comp = false;
-            lb.setText("TURNO: " + u2.getNome().toUpperCase());
-            lb.setForeground(Color.BLACK);
-            score.setBackground(Color.WHITE);
+            lb.setText("TURNO DI " + u2.getNome().toUpperCase());
 
         }
 
