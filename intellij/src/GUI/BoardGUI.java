@@ -23,6 +23,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private JPanel scacchiera = new JPanel();
     private JPanel score = new JPanel(new BorderLayout());
 
+
+    private JPanel sinistra = new JPanel();
+    private JPanel nord = new JPanel();
+    private JPanel destra = new JPanel();
+
+
     private JButton pulsanti[][] = new JButton[8][8];
 
     private char posizioni[][] = new char[8][8];
@@ -66,20 +72,31 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         setLabel();
 
 
+
+
     }
 
 
     private void setBoard() {
 
-        frame.setSize(800, 800);
+        frame.setSize(1650,1080);
         frame.setLocationRelativeTo(null);
-        frame.setBackground(Color.lightGray);
+
+        frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
 
 
         scacchiera.setLayout(new GridLayout(8, 8, 5, 5));
+
+        setPannelloNord();
+
+        setPannelloDestra();
+
+        setPannelloSinistra();
 
 
         for (int i = 0; i < 8; i++) {
@@ -201,6 +218,35 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     }
+
+    public void setPannelloNord() {
+
+
+        nord.setPreferredSize(new Dimension(100, 100));
+        c.add(nord, BorderLayout.NORTH);
+
+
+    }
+
+    public void setPannelloDestra() {
+
+
+        destra.setPreferredSize(new Dimension(500, 500));
+        c.add(destra, BorderLayout.EAST);
+
+
+    }
+
+    public void setPannelloSinistra() {
+
+
+        sinistra.setPreferredSize(new Dimension(500, 500));
+        c.add(sinistra, BorderLayout.WEST);
+
+
+    }
+
+
 
 
     public boolean canDoubleBlack(int i, int j) {
