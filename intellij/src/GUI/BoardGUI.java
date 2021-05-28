@@ -36,6 +36,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     private JButton pulsanti[][] = new JButton[8][8];
 
+    private JButton resa = new JButton();
+
+
+
+
+
     private char posizioni[][] = new char[8][8];
 
     private JFrame frame = new JFrame();
@@ -80,9 +86,33 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         setLabel();
 
+        setResaButton();
 
 
     }
+
+
+    private void setResaButton(){
+
+        resa.setBounds(1500,835, 300, 80);
+
+        resa.setVisible(true);
+
+        resa.setBackground(Color.WHITE);
+        resa.setForeground(Color.BLACK);
+
+        resa.setText("Resa");
+
+        resa.setFont(new Font("Arial", Font.BOLD, 30));
+
+        resa.addActionListener(this);
+
+    }
+
+
+
+
+
 
 
     private void setBoard() {
@@ -243,6 +273,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         frame.add(lb);
 
         frame.add(color);
+
+        frame.add(resa);
+
 
         score.setPreferredSize(new Dimension(100, 100));
         c.add(score, BorderLayout.SOUTH);
@@ -472,6 +505,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
 
                                 }
+
+                                if(posizioni[aux1 + 1][aux2 + 1] == 'W' && doppiaBlack == true){
+                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
+                                    posizioni[aux1 + 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+                                }
                             }
 
                             else if ((i == aux1 + 2) && (j == aux2 - 2)) {
@@ -496,6 +538,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
 
                                 }
+
+                                if(posizioni[aux1 + 1][aux2 - 1] == 'W' && doppiaBlack == true){
+                                    posizioni[aux1 + 2][aux2 - 2] = 'B';
+                                    posizioni[aux1 + 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+                                }
                             }
 
                             else if (((i == aux1 - 2) && (j == aux2 - 2)) && doppiaBlack == true) {
@@ -512,27 +563,40 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                                 }
 
+                                if(posizioni[aux1 - 1][aux2 - 1] == 'W'){
+                                    posizioni[aux1 - 2][aux2 - 2] = 'B';
+                                    posizioni[aux1 - 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+                                }
+
                             }
 
-                            else if (((i == aux1 - 2) && (j == aux2 + 2)) && doppiaBlack == true) {
+                            else if (((i == aux1 - 2) && (j == aux2 + 2))) {
 
 
                                 if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
 
-                                    if (doppiaBlack == false) {
-                                        posizioni[aux1 - 2][aux2 + 2] = 'b';
-                                        if (canDoubleBlack(i, j) == true) {
-                                            posizioni[aux1 - 2][aux2 + 2] = 'B';
-                                        }
-                                    } else {
-                                        posizioni[aux1 - 2][aux2 + 2] = 'B';
-                                    }
+
+                                    posizioni[aux1 - 2][aux2 + 2] = 'B';
+
                                     posizioni[aux1 - 1][aux2 + 1] = '-';
                                     pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
                                     boardUpdate();
                                     resetBool();
                                     disp = true;
 
+                                }
+
+                                if(posizioni[aux1 - 1][aux2 + 1] == 'W'){
+                                    posizioni[aux1 - 2][aux2 + 2] = 'B';
+                                    posizioni[aux1 - 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
                                 }
                             }
 
@@ -556,7 +620,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         }
         return (disp);
     }
-
 
 
     private boolean turnWhite(ActionEvent e) {
@@ -698,6 +761,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
 
                                 }
+
+                                if(posizioni[aux1 - 1][aux2 + 1] == 'B' && doppiaWhite == true){
+                                    posizioni[aux1 - 2][aux2 + 2] = 'W';
+                                    posizioni[aux1 - 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+                                }
                             }
 
                             if (((i == aux1 + 2) && (j == aux2 + 2)) && doppiaWhite == true) {
@@ -716,6 +788,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
 
                                 }
+
+                                if(posizioni[aux1 + 1][aux2 + 1] == 'B'){
+                                    posizioni[aux1 + 2][aux2 + 2] = 'W';
+                                    posizioni[aux1 + 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+                                }
                             }
                         }
 
@@ -730,7 +811,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                         posizioni[aux1 - 2][aux2 - 2] = 'W';
                                         doppiaWhite = true;
                                     }
-                                } else {
+                                }
+                                else {
                                     posizioni[aux1 - 2][aux2 - 2] = 'W';
                                 }
                                 posizioni[aux1 - 1][aux2 - 1] = '-';
@@ -740,11 +822,18 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 disp = true;
 
                             }
+
+                            if(posizioni[aux1 - 1][aux2 - 1] == 'B' && doppiaWhite == true){
+                                posizioni[aux1 - 2][aux2 - 2] = 'W';
+                                posizioni[aux1 - 1][aux2 - 1] = '-';
+                                pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
+                                boardUpdate();
+                                resetBool();
+                                disp = true;
+                            }
                         }
 
                         if (((i == aux1 + 2) && (j == aux2 - 2)) && doppiaWhite == true) {
-
-                            if (doppiaWhite == true) {
 
 
                                 if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
@@ -760,7 +849,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                                 }
 
+                            if(posizioni[aux1 + 1][aux2 - 1] == 'B'){
+                                posizioni[aux1 + 2][aux2 - 2] = 'W';
+                                posizioni[aux1 + 1][aux2 - 1] = '-';
+                                pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
+                                boardUpdate();
+                                resetBool();
+                                disp = true;
                             }
+
+
 
                         }
                         else if (posizioni[i][j] == 'b') {
@@ -870,6 +968,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if(e.getSource() == resa){
+
+            frame.dispose();
+
+            VictoryGUI v = new VictoryGUI();
+
+
+
+        }
+
 
         if (comp == false) {
 
@@ -899,6 +1007,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                 cont = 3;
                 lb.setText("TURNO DI " + u1.getNome().toUpperCase());
                 color.setText("NERO");
+
+
+                resa.setBackground(Color.BLACK);
+                resa.setForeground(Color.WHITE);
+
+                checkVittoria = 1;
 
 
             }
@@ -938,6 +1052,11 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
             comp = false;
             lb.setText("TURNO DI " + u2.getNome().toUpperCase());
             color.setText("BIANCO");
+
+            resa.setBackground(Color.WHITE);
+            resa.setForeground(Color.BLACK);
+
+            checkVittoria = 2;
 
 
         }
