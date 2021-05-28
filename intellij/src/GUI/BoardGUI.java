@@ -24,9 +24,14 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private JPanel score = new JPanel(new BorderLayout());
 
 
-    private JPanel sinistra = new JPanel();
+    ImagePanel sinistra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Sinistra.jpg").getImage());
+    ImagePanel nord = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
+    ImagePanel destra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Destra.jpg").getImage());
+
+
+   /* private JPanel sinistra = new JPanel();
     private JPanel nord = new JPanel();
-    private JPanel destra = new JPanel();
+    private JPanel destra = new JPanel();*/
 
 
     private JButton pulsanti[][] = new JButton[8][8];
@@ -97,6 +102,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         setPannelloDestra();
 
         setPannelloSinistra();
+
 
 
         for (int i = 0; i < 8; i++) {
