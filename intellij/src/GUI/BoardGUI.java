@@ -37,10 +37,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private JButton pulsanti[][] = new JButton[8][8];
 
     private JButton resa = new JButton();
-
-
-
-
+    
 
     private char posizioni[][] = new char[8][8];
 
@@ -932,7 +929,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                if (posizioni[i][j] == 'b') {
+                if (posizioni[i][j] == 'b' || posizioni[i][j] == 'B' ) {
 
 
                     cont++;
