@@ -358,7 +358,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                             disp = true;
                         }
-                    } else if (primo == true) {
+                    }
+
+                    else if (primo == true) {
 
                         if (posizioni[i][j] == 'w' || posizioni[i][j] == 'W') {
 
@@ -373,7 +375,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             boardUpdate();
                             disp = false;
 
-                        } else if (i == aux1 && j == aux2) {
+                        }
+
+                        else if (i == aux1 && j == aux2) {
 
                             if (doppiaBlack == false) {
                                 posizioni[aux1][aux2] = 'b';
@@ -385,7 +389,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             secondo = false;
                             boardUpdate();
                             disp = false;
-                        } else if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
+                        }
+
+                        else if ((i == aux1 - 1 && j == aux2 - 1) || (i == aux1 - 1 && j == aux2 + 1)) {
 
                             if (doppiaBlack == false) {
                                 JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
@@ -393,7 +399,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 primo = false;
                                 boardUpdate();
                                 disp = false;
-                            } else {
+                            }
+
+                            else {
                                 if (posizioni[i][j] == 'w' || posizioni[i][j] == 'W') {
                                     JOptionPane.showMessageDialog(null, "Casella occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                                     posizioni[aux1][aux2] = 'B';
@@ -409,9 +417,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     boardUpdate();
                                     resetBool();
                                     disp = true;
+
                                 }
                             }
-                        } else if ((posizioni[i][j] == '-' && secondo == false)) {
+                        }
+
+                        else if ((posizioni[i][j] == '-' && secondo == false)) {
 
                             if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
@@ -430,292 +441,114 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 boardUpdate();
                                 resetBool();
 
-                            } else if ((i == aux1 + 2) && (j == aux2 + 2)) {
-                                if (j < 6 && j > 0) {
-
-
-                                    if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
-
-                                        if (doppiaBlack == false) {
-                                            posizioni[aux1 + 2][aux2 + 2] = 'b';
-                                            if (canDoubleBlack(i, j) == true) {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                doppiaBlack = true;
-                                            }
-                                        } else {
-                                            posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                        }
-
-                                        posizioni[aux1 + 1][aux2 + 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                }
-
-                                if (j == 7 || j == 6) {
-                                    if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
-
-                                        if (doppiaBlack == false) {
-                                            posizioni[aux1 + 2][aux2 + 2] = 'b';
-                                            if (canDoubleBlack(i, j) == true) {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                doppiaBlack = true;
-                                            }
-                                        } else {
-                                            posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                        }
-
-                                        posizioni[aux1 + 1][aux2 + 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                } else if (j == 0) {
-                                    if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
-
-                                        if (doppiaBlack == false) {
-                                            posizioni[aux1 + 2][aux2 + 2] = 'b';
-                                            if (canDoubleBlack(i, j) == true) {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                doppiaBlack = true;
-                                            }
-                                        } else {
-                                            posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                        }
-
-                                        posizioni[aux1 + 1][aux2 + 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                }
-                            } else if ((i == aux1 + 2) && (j == aux2 - 2)) {
-                                if (j < 6 && j > 0) {
-
-
-                                    if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
-
-                                        if (doppiaBlack == false) {
-                                            posizioni[aux1 + 2][aux2 - 2] = 'b';
-                                            if (canDoubleBlack(i, j) == true) {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'B';
-                                            }
-                                        } else {
-                                            posizioni[aux1 + 2][aux2 - 2] = 'B';
-                                        }
-
-                                        posizioni[aux1 + 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                }
-
-                                if (j == 7 || j == 6) {
-                                    if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
-
-                                        if (doppiaBlack == false) {
-                                            posizioni[aux1 + 2][aux2 - 2] = 'b';
-                                            if (canDoubleBlack(i, j) == true) {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'B';
-                                            }
-                                        } else {
-                                            posizioni[aux1 + 2][aux2 - 2] = 'B';
-                                        }
-                                        posizioni[aux1 + 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                } else if (j == 0) {
-                                    if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
-
-                                        if (doppiaBlack == false) {
-                                            posizioni[aux1 + 2][aux2 - 2] = 'b';
-                                            if (canDoubleBlack(i, j) == true) {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'B';
-                                            }
-                                        } else {
-                                            posizioni[aux1 + 2][aux2 - 2] = 'B';
-                                        }
-                                        posizioni[aux1 + 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                }
-                            } else if ((i == aux1 - 2) && (j == aux2 - 2)) {
-                                if (doppiaBlack == true) {
-
-                                    if (j < 6 && j > 0) {
-
-
-                                        if (posizioni[aux1 - 1][aux2 - 1] == 'w') {
-
-                                            if (doppiaBlack == false) {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'b';
-                                                if (canDoubleBlack(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                }
-                                            } else {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'B';
-                                            }
-                                            posizioni[aux1 - 1][aux2 - 1] = '-';
-                                            pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    }
-
-                                    if (j == 7 && i == 6) {
-                                        if (posizioni[aux1 - 1][aux2 - 1] == 'w') {
-
-                                            if (doppiaBlack == false) {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'b';
-                                                if (canDoubleBlack(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                }
-                                            } else {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'B';
-                                            }
-                                            posizioni[aux1 - 1][aux2 - 1] = '-';
-                                            pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    } else if (j == 0) {
-                                        if (posizioni[aux1 - 1][aux2 - 1] == 'w') {
-
-                                            if (doppiaBlack == false) {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'b';
-                                                if (canDoubleBlack(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                }
-                                            } else {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'B';
-                                            }
-                                            posizioni[aux1 - 1][aux2 - 1] = '-';
-                                            pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                                    posizioni[aux1][aux2] = 'b';
-                                    secondo = false;
-                                    boardUpdate();
-                                    disp = false;
-                                }
-                            } else if ((i == aux1 - 2) && (j == aux2 + 2)) {
-
-                                if (doppiaBlack == true) {
-
-                                    if (j < 6 && j > 0) {
-
-
-                                        if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
-
-                                            if (doppiaBlack == false) {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'b';
-                                                if (canDoubleBlack(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                }
-                                            } else {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'B';
-                                            }
-                                            posizioni[aux1 - 1][aux2 + 1] = '-';
-                                            pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    }
-
-                                    if (j == 7 && i == 6) {
-                                        if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
-
-                                            if (doppiaBlack == false) {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'b';
-                                                if (canDoubleBlack(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                }
-                                            } else {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'B';
-                                            }
-                                            posizioni[aux1 - 1][aux2 + 1] = '-';
-                                            pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    } else if (j == 0) {
-                                        if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
-
-                                            if (doppiaBlack == false) {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'b';
-                                                if (canDoubleBlack(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'B';
-                                                }
-                                            } else {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'B';
-                                            }
-                                            posizioni[aux1 - 1][aux2 + 1] = '-';
-                                            pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                                    posizioni[aux1][aux2] = 'b';
-                                    secondo = false;
-                                    boardUpdate();
-                                    disp = false;
-                                }
-                            }
-                        } else if (posizioni[i][j] == 'w') {
-                            JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-
-                            if (doppiaBlack == true) {
-                                posizioni[aux1][aux2] = 'B';
-                            } else {
-                                posizioni[aux1][aux2] = 'b';
                             }
 
-                            primo = false;
-                            boardUpdate();
-                            disp = false;
+                            else if ((i == aux1 + 2) && (j == aux2 + 2)) {
+
+                                if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
+
+                                    if (doppiaBlack == false) {
+                                        posizioni[aux1 + 2][aux2 + 2] = 'b';
+                                        if (canDoubleBlack(i, j) == true) {
+                                            posizioni[aux1 + 2][aux2 + 2] = 'B';
+                                            doppiaBlack = true;
+                                        }
+                                    } else {
+                                        posizioni[aux1 + 2][aux2 + 2] = 'B';
+                                    }
+
+                                    posizioni[aux1 + 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+
+                                }
+                            }
+
+                            else if ((i == aux1 + 2) && (j == aux2 - 2)) {
+
+                                if (posizioni[aux1 + 1][aux2 - 1] == 'w') {
+
+                                    if (doppiaBlack == false) {
+                                        posizioni[aux1 + 2][aux2 - 2] = 'b';
+                                        if (canDoubleBlack(i, j) == true) {
+                                            posizioni[aux1 + 2][aux2 - 2] = 'B';
+                                        }
+                                    }
+
+                                    else {
+                                        posizioni[aux1 + 2][aux2 - 2] = 'B';
+                                    }
+
+                                    posizioni[aux1 + 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+
+                                }
+                            }
+
+                            else if (((i == aux1 - 2) && (j == aux2 - 2)) && doppiaBlack == true) {
+
+                                if (posizioni[aux1 - 1][aux2 - 1] == 'w') {
+
+                                    posizioni[i][j] = 'B';
+
+                                    posizioni[aux1 - 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+
+                                }
+
+                            }
+
+                            else if (((i == aux1 - 2) && (j == aux2 + 2)) && doppiaBlack == true) {
+
+
+                                if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
+
+                                    if (doppiaBlack == false) {
+                                        posizioni[aux1 - 2][aux2 + 2] = 'b';
+                                        if (canDoubleBlack(i, j) == true) {
+                                            posizioni[aux1 - 2][aux2 + 2] = 'B';
+                                        }
+                                    } else {
+                                        posizioni[aux1 - 2][aux2 + 2] = 'B';
+                                    }
+                                    posizioni[aux1 - 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+
+                                }
+                            }
+
                         }
+                    }
+                    else if (posizioni[i][j] == 'w') {
+                        JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+
+                        if (doppiaBlack == true) {
+                            posizioni[aux1][aux2] = 'B';
+                        } else {
+                            posizioni[aux1][aux2] = 'b';
+                        }
+
+                        primo = false;
+                        boardUpdate();
+                        disp = false;
                     }
                 }
             }
         }
         return (disp);
     }
+
 
 
     private boolean turnWhite(ActionEvent e) {
@@ -757,7 +590,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             disp = true;
 
                         }
-                    } else if (primo == true) {
+                    }
+
+                    else if (primo == true) {
 
                         if (posizioni[i][j] == 'b' || posizioni[i][j] == 'B') {
 
@@ -835,285 +670,107 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             }
 
                             if ((i == aux1 - 2) && (j == aux2 + 2)) {
-                                if (j < 6 && j > 0) {
 
-                                    if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
+                                if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
 
-                                        if (doppiaWhite == false) {
-                                            posizioni[aux1 - 2][aux2 + 2] = 'w';
-                                            if (canDoubleWhite(i, j) == true) {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'W';
-                                                doppiaWhite = true;
-                                            }
-                                        } else {
+                                    if (doppiaWhite == false) {
+                                        posizioni[aux1 - 2][aux2 + 2] = 'w';
+                                        if (canDoubleWhite(i, j) == true) {
                                             posizioni[aux1 - 2][aux2 + 2] = 'W';
+                                            doppiaWhite = true;
                                         }
-
-                                        posizioni[aux1 - 1][aux2 + 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
+                                    } else {
+                                        posizioni[aux1 - 2][aux2 + 2] = 'W';
                                     }
-                                }
 
-                                if (j == 7 || j == 6) {
-                                    if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
+                                    posizioni[aux1 - 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
 
-                                        if (doppiaWhite == false) {
-                                            posizioni[aux1 - 2][aux2 + 2] = 'w';
-                                            if (canDoubleWhite(i, j) == true) {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'W';
-                                            }
-                                        } else {
-                                            posizioni[aux1 - 2][aux2 + 2] = 'W';
-                                        }
-                                        posizioni[aux1 - 1][aux2 + 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                } else if (j == 0) {
-                                    if (posizioni[aux1 - 1][aux2 + 1] == 'b') {
-
-                                        if (doppiaWhite == false) {
-                                            posizioni[aux1 - 2][aux2 + 2] = 'w';
-                                            if (canDoubleWhite(i, j) == true) {
-                                                posizioni[aux1 - 2][aux2 + 2] = 'W';
-                                            }
-                                        } else {
-                                            posizioni[aux1 - 2][aux2 + 2] = 'W';
-                                        }
-                                        posizioni[aux1 - 1][aux2 + 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
                                 }
                             }
 
                             if (((i == aux1 + 2) && (j == aux2 + 2)) && doppiaWhite == true) {
 
-                                if (doppiaWhite == true) {
 
-                                    if (j < 6 && j > 0) {
+                                if (posizioni[aux1 + 1][aux2 + 1] == 'b') {
 
-                                        if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
 
-                                            if (doppiaWhite == false) {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'w';
-                                                if (canDoubleWhite(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                                }
-                                            } else {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                            }
+                                    posizioni[aux1 + 2][aux2 + 2] = 'W';
 
-                                            posizioni[aux1 + 1][aux2 + 1] = '-';
-                                            pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
 
-                                        }
-                                    }
-
-                                    if (j == 7 || j == 6) {
-                                        if (posizioni[aux1 + 1][aux2 + 1] == 'b') {
-
-                                            if (doppiaWhite == false) {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'w';
-                                                if (canDoubleWhite(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                                }
-                                            } else {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                            }
-                                            posizioni[aux1 + 1][aux2 + 1] = '-';
-                                            pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    } else if (j == 0) {
-                                        if (posizioni[aux1 + 1][aux2 + 1] == 'b') {
-
-                                            if (doppiaWhite == false) {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'w';
-                                                if (canDoubleWhite(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                                }
-                                            } else {
-                                                posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                            }
-                                            posizioni[aux1 + 1][aux2 + 1] = '-';
-                                            pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                                    posizioni[aux1][aux2] = 'w';
-                                    secondo = false;
+                                    posizioni[aux1 + 1][aux2 + 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
                                     boardUpdate();
-                                    disp = false;
+                                    resetBool();
+                                    disp = true;
+
                                 }
                             }
+                        }
 
-                            if ((i == aux1 - 2) && (j == aux2 - 2)) {
-
-                                if (j < 6 && j > 0) {
+                        if ((i == aux1 - 2) && (j == aux2 - 2)) {
 
 
-                                    if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
+                            if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
 
-                                        if (doppiaWhite == false) {
-                                            posizioni[aux1 - 2][aux2 - 2] = 'w';
-                                            if (canDoubleWhite(i, j) == true) {
-                                                posizioni[aux1 - 2][aux2 - 2] = 'W';
-                                                doppiaWhite = true;
-                                            }
-                                        } else {
-                                            posizioni[aux1 - 2][aux2 - 2] = 'W';
-                                        }
-                                        posizioni[aux1 - 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                }
-
-                                if (j == 7 && i == 6) {
-                                    if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
-
-                                        if (doppiaWhite == false) {
-                                            posizioni[aux1 - 2][aux2 - 2] = 'w';
-                                        } else {
-                                            posizioni[aux1 - 2][aux2 - 2] = 'W';
-                                        }
-                                        posizioni[aux1 - 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                } else if (j == 0) {
-                                    if (posizioni[aux1 - 1][aux2 - 1] == 'b') {
-
-                                        if (doppiaWhite == false) {
-                                            posizioni[aux1 - 2][aux2 - 2] = 'w';
-                                        } else {
-                                            posizioni[aux1 - 2][aux2 - 2] = 'W';
-                                        }
-                                        posizioni[aux1 - 1][aux2 - 1] = '-';
-                                        pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                        boardUpdate();
-                                        resetBool();
-                                        disp = true;
-
-                                    }
-                                }
-                            }
-
-                            if (((i == aux1 + 2) && (j == aux2 - 2)) && doppiaWhite == true) {
-
-                                if (doppiaWhite == true) {
-
-                                    if (j < 6 && j > 0) {
-
-                                        if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
-
-                                            if (doppiaWhite == false) {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'w';
-                                                if (canDoubleWhite(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                                }
-                                            } else {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                            }
-
-                                            posizioni[aux1 + 1][aux2 - 1] = '-';
-                                            pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    }
-
-                                    if (j == 7 || j == 6) {
-                                        if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
-
-                                            if (doppiaWhite == false) {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'w';
-                                                if (canDoubleWhite(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                                }
-                                            } else {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                            }
-                                            posizioni[aux1 + 1][aux2 - 1] = '-';
-                                            pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
-                                    } else if (j == 0) {
-                                        if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
-
-                                            if (doppiaWhite == false) {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'w';
-                                                if (canDoubleWhite(i, j) == true) {
-                                                    posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                                }
-                                            } else {
-                                                posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                            }
-                                            posizioni[aux1 + 1][aux2 - 1] = '-';
-                                            pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                            boardUpdate();
-                                            resetBool();
-                                            disp = true;
-
-                                        }
+                                if (doppiaWhite == false) {
+                                    posizioni[aux1 - 2][aux2 - 2] = 'w';
+                                    if (canDoubleWhite(i, j) == true) {
+                                        posizioni[aux1 - 2][aux2 - 2] = 'W';
+                                        doppiaWhite = true;
                                     }
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                                    posizioni[aux1][aux2] = 'w';
-                                    secondo = false;
-                                    boardUpdate();
-                                    disp = false;
+                                    posizioni[aux1 - 2][aux2 - 2] = 'W';
                                 }
+                                posizioni[aux1 - 1][aux2 - 1] = '-';
+                                pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
+                                boardUpdate();
+                                resetBool();
+                                disp = true;
 
                             }
                         }
-                    } else if (posizioni[i][j] == 'b') {
-                        JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                        /*if(doppia == false){
-                            posizioni[aux1 - 2][aux2 + 2] = 'w';
+
+                        if (((i == aux1 + 2) && (j == aux2 - 2)) && doppiaWhite == true) {
+
+                            if (doppiaWhite == true) {
+
+
+                                if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
+
+                                    posizioni[aux1 + 2][aux2 - 2] = 'W';
+
+
+                                    posizioni[aux1 + 1][aux2 - 1] = '-';
+                                    pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
+                                    boardUpdate();
+                                    resetBool();
+                                    disp = true;
+
+                                }
+
+                            }
+
                         }
+                        else if (posizioni[i][j] == 'b') {
+                            JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                            if(doppiaWhite == false){
+                                posizioni[aux1 - 2][aux2 + 2] = 'w';
+                            }
 
-                        else{
-                            posizioni[aux1 - 2][aux2 + 2] = 'W';
-                        }*/
-                        primo = false;
-                        boardUpdate();
-                        disp = false;
+                            else{
+                                posizioni[aux1 - 2][aux2 + 2] = 'W';
+                            }
+                            primo = false;
+                            boardUpdate();
+                            disp = false;
 
+                        }
                     }
+
                 }
             }
         }
