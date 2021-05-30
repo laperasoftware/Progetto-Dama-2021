@@ -23,9 +23,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private JPanel scacchiera = new JPanel();
 
 
-    //private JPanel score = new JPanel(new BorderLayout());
-
-
     ImagePanel sinistra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Sinistra.jpg").getImage());
     ImagePanel nord = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
     ImagePanel destra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Destra.jpg").getImage());
@@ -47,6 +44,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     private JLabel color = new JLabel("");
 
+    private JLabel lb5 = new JLabel("ISTRUZIONI");
+
+    private JButton istruzioni = new JButton();
 
 
     private boolean primo = false;
@@ -69,6 +69,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         return checkVittoria;
     }
 
+
+
+
     public void boardDisplay() {
 
         frame.addWindowListener(this);
@@ -83,13 +86,15 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         setLabel();
 
-        setResaButton();
+        setButton();
 
 
     }
 
 
-    private void setResaButton(){
+
+
+    private void setButton(){
 
         resa.setBounds(1500,835, 300, 80);
 
@@ -104,9 +109,19 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         resa.addActionListener(this);
 
+        istruzioni.setBounds(150,100,110,110);
+        istruzioni.addActionListener(this);
+        istruzioni.setBackground(new Color(255,255,255));
+        istruzioni.setVisible(true);
+        istruzioni.setText("?");
+        istruzioni.setForeground(new Color(127, 118, 45));
+        istruzioni.setFont(new Font("Stencil", Font.BOLD, 66));
+
+
+
+
+
     }
-
-
 
 
 
@@ -241,6 +256,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     private void setLabel() {
 
+
+
         lb.setText("INIZIA IL BIANCO");
         lb.setForeground(Color.BLACK);
 
@@ -259,6 +276,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         color.setHorizontalAlignment(JLabel.CENTER);
 
+        lb5.setBounds(100,130,800,250);
+        lb5.setFont(new Font("Stencil", Font.BOLD, 36));
+        lb5.setForeground(Color.BLACK);
+
+
+
 
     }
 
@@ -272,6 +295,10 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         frame.add(color);
 
         frame.add(resa);
+
+        frame.add(lb5);
+
+        frame.add(istruzioni);
 
 
         score.setPreferredSize(new Dimension(100, 100));
@@ -974,6 +1001,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
         }
+
+
+        if(e.getSource() == istruzioni){
+
+            GuideGUI g = new GuideGUI();
+
+
+
+        }
+
 
 
         if (comp == false) {

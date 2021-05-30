@@ -52,6 +52,8 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         setButton();
         setTextField();
 
+        frame.setVisible(true);
+
     }
 
 
@@ -64,7 +66,6 @@ public class LogGUI extends JFrame implements ActionListener, WindowListener {
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
 

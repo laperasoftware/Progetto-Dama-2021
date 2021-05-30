@@ -18,9 +18,15 @@ public class TitleGUI extends JFrame implements ActionListener {
     private JLabel lb1 = new JLabel("DAMA");
     private JLabel lb2 = new JLabel("Alessandro Orlando");
     private JLabel lb3 = new JLabel("Massimiliano Lisi");
+
     private JLabel lb4 = new JLabel("ENTRA");
+    private JLabel lb5 = new JLabel("ISTRUZIONI");
+
 
     private JButton enter = new JButton();
+
+    private JButton istruzioni = new JButton();
+
 
 
     ImagePanel panel = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
@@ -30,13 +36,13 @@ public class TitleGUI extends JFrame implements ActionListener {
 
     public TitleGUI(){
 
-        super("LogIn");
-
 
         setFrame();
         setPanel();
         setLabel();
         setButton();
+
+        frame.setVisible(true);
 
     }
 
@@ -49,9 +55,9 @@ public class TitleGUI extends JFrame implements ActionListener {
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setResizable(false);
+
 
     }
 
@@ -93,11 +99,18 @@ public class TitleGUI extends JFrame implements ActionListener {
         lb4.setForeground(Color.BLACK);
 
 
+        lb5.setBounds(1650,130,800,250);
+        lb5.setFont(new Font("Stencil", Font.BOLD, 36));
+        lb5.setForeground(Color.BLACK);
+
+
 
         panel.add(lb1);
         panel.add(lb2);
         panel.add(lb3);
         panel.add(lb4);
+        panel.add(lb5);
+
 
     }
 
@@ -115,6 +128,19 @@ public class TitleGUI extends JFrame implements ActionListener {
 
         panel.add(enter);
 
+        istruzioni.setBounds(1700,100,110,110);
+        istruzioni.addActionListener(this);
+        istruzioni.setBackground(new Color(255,255,255));
+        istruzioni.setVisible(true);
+        istruzioni.setText("?");
+        istruzioni.setForeground(new Color(127, 118, 45));
+        istruzioni.setFont(new Font("Stencil", Font.BOLD, 66));
+
+
+
+
+        panel.add(istruzioni);
+
 
     }
 
@@ -124,9 +150,21 @@ public class TitleGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
 
-        frame.setVisible(false);
-        frame.dispose();
-        LogGUI b = new LogGUI();
+        if(e.getSource() == enter){
+
+            frame.setVisible(false);
+            frame.dispose();
+            LogGUI b = new LogGUI();
+
+        }
+
+        else{
+
+
+            GuideGUI g = new GuideGUI();
+        }
+
+
 
     }
 
