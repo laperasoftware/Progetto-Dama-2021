@@ -117,10 +117,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         istruzioni.setForeground(new Color(127, 118, 45));
         istruzioni.setFont(new Font("Stencil", Font.BOLD, 66));
 
-
-
-
-
     }
 
 
@@ -1011,6 +1007,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         }
 
+        else{
 
 
         if (comp == false) {
@@ -1098,7 +1095,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         System.out.println(cont + " " + comp);
 
         return;
-
+        }
     }
 
 
