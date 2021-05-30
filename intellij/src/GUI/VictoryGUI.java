@@ -57,7 +57,7 @@ public class VictoryGUI implements ActionListener {
 
         f.setSize(1200, 812);
         f.setLocationRelativeTo((Component) null);
-        f.setDefaultCloseOperation(3);
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.setVisible(true);
         f.setResizable(false);
 
