@@ -10,9 +10,6 @@ import java.awt.event.ActionListener;
 public class TitleGUI extends JFrame implements ActionListener {
 
     private JFrame frame = new JFrame();
-    private JPanel p = new JPanel();
-
-    Container c;
 
 
     private JLabel lb1 = new JLabel("DAMA");

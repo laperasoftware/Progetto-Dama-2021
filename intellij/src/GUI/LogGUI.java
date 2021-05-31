@@ -1,5 +1,5 @@
 package GUI;
-import User.User;
+import user.User;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

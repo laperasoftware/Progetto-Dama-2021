@@ -1,8 +1,6 @@
 package main;
 
-import GUI.GuideGUI;
 import GUI.TitleGUI;
-import GUI.VictoryGUI;
 
 
 public class Main {

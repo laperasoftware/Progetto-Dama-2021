@@ -1,6 +1,6 @@
 package GUI;
 
-import User.User;
+import user.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     ImagePanel sinistra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Sinistra.jpg").getImage());
+
     ImagePanel nord = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In.jpg").getImage());
+
     ImagePanel destra = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Destra.jpg").getImage());
 
     ImagePanel score = new ImagePanel(new ImageIcon("IMG/Sfondo_Log_In_Sud.jpg").getImage());
@@ -59,17 +61,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     private int aux2;
     private int cont = 0;
 
-
     private Container c;
 
     private static int checkVittoria = 0;
+
+
 
     public static int getCheckVittoria() {
 
         return checkVittoria;
     }
-
-
 
 
     public void boardDisplay() {
@@ -90,8 +91,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     }
-
-
 
 
     private void setButton(){
@@ -118,9 +117,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         istruzioni.setFont(new Font("Stencil", Font.BOLD, 66));
 
     }
-
-
-
 
 
     private void setBoard() {
@@ -248,8 +244,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     }
 
 
-
-
     private void setLabel() {
 
 
@@ -280,8 +274,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
 
     }
-
-
 
 
     public void setScoreBoard() {
@@ -725,7 +717,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             disp = false;
 
 
-                        } else if (i == aux1 && j == aux2) {
+                        }
+
+                        else if (i == aux1 && j == aux2) {
 
                             if (doppiaWhite == false) {
                                 posizioni[aux1][aux2] = 'w';
@@ -738,7 +732,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             secondo = false;
                             boardUpdate();
                             disp = false;
-                        } else if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
+                        }
+
+                        else if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
                             if (doppiaWhite == false) {
                                 JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
@@ -746,7 +742,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 primo = false;
                                 boardUpdate();
                                 disp = false;
-                            } else {
+                            }
+
+                            else {
 
                                 if (posizioni[i][j] == 'b' || posizioni[i][j] == 'B') {
                                     JOptionPane.showMessageDialog(null, "Casella occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
@@ -766,7 +764,9 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 }
                             }
 
-                        } else if ((posizioni[i][j] == '-' && secondo == false)) {
+                        }
+
+                        else if ((posizioni[i][j] == '-' && secondo == false)) {
 
                             if (((i == aux1 - 1) && (j == aux2 + 1)) || ((i == aux1 - 1) && (j == aux2 - 1))) {
 
@@ -835,7 +835,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                                 }
                             }
-                        }
 
                         if ((i == aux1 - 2) && (j == aux2 - 2)) {
 
@@ -887,20 +886,22 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 }
 
                         }
-                        else if (posizioni[i][j] == 'b') {
-                            JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
-                            if(doppiaWhite == false){
-                                posizioni[aux1 - 2][aux2 + 2] = 'w';
-                            }
+                    }
+                }
 
-                            else{
-                                posizioni[aux1 - 2][aux2 + 2] = 'W';
-                            }
-                            primo = false;
-                            boardUpdate();
-                            disp = false;
-
+                    else if (posizioni[i][j] == 'b') {
+                        JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
+                        if(doppiaWhite == false){
+                            posizioni[aux1][aux2]= 'w';
                         }
+
+                        else{
+                            posizioni[aux1][aux2] = 'W';
+                        }
+                        primo = false;
+                        boardUpdate();
+                        disp = false;
+
                     }
 
                 }
