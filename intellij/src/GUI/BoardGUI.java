@@ -330,9 +330,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     }
 
-
-
-
     public boolean canDoubleBlack(int i, int j) {
         boolean doppia = false;
 
@@ -344,7 +341,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
         return (doppia);
     }
 
-
     public boolean canDoubleWhite(int i, int j) {
         boolean doppia = false;
 
@@ -355,7 +351,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
         return (doppia);
     }
-
 
     private void boardUpdate() {
         for (int i = 0; i < 8; i++) {
@@ -396,17 +391,25 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                 if (source == pulsanti[i][j]) {
                     if (primo == false && secondo == false) {
 
+                        //SE VIENE SELEZIONATA UNA POSIZIONE SENZA PEDINE NERE
                         if (posizioni[i][j] != 'b' && posizioni[i][j] != 'B') {
 
                             JOptionPane.showMessageDialog(null, "La casella selezionata non presenta delle pedine nere", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                             primo = false;
 
                             disp = false;
-                        } else if (posizioni[i][j] == 'b' || posizioni[i][j] == 'B') {
+                        }
 
+                        //SE SELEZIONA UNA PEDINA NERA
+                        else if (posizioni[i][j] == 'b' || posizioni[i][j] == 'B') {
+
+                            // SE LA PEDINA SELEZIONATA E' NORMALE
                             if (posizioni[i][j] == 'b') {
                                 doppiaBlack = false;
-                            } else if (posizioni[i][j] == 'B') {
+                            }
+
+                            // SE E' DOPPIA
+                            else if (posizioni[i][j] == 'B') {
                                 doppiaBlack = true;
                             }
 
@@ -421,13 +424,19 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                         }
                     }
 
+                    // SE IL PRIMO TURNO E' ANDATO A BUON FINE
                     else if (primo == true) {
 
+                        // CONTROLLA SE LA POSIZIONE SCELTA E' OCCUPATA
                         if (posizioni[i][j] == 'w' || posizioni[i][j] == 'W') {
 
+                            // SE LA PEDINA SPOSTATA E' UNA PEDINA NORMALE ALLORA VIENE RIPOSIZIONATA NELLA SUA POSIZIONE INIZIALE
                             if (doppiaBlack == false) {
                                 posizioni[aux1][aux2] = 'b';
-                            } else {
+                            }
+
+                            // SE LA PEDINA SPOSTATA E' UNA DAMA ALLORA VIENE RIPOSIZIONA NELLA SUA POSIZIONE INIZIALE
+                            else {
                                 posizioni[aux1][aux2] = 'B';
                             }
 
@@ -438,11 +447,16 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                         }
 
+                        // SE LA POSIZIONE SCELTA E' QUELLA INIZIALE
                         else if (i == aux1 && j == aux2) {
 
+                            // SE LA PEDINA SPOSTATA E' UNA PEDINA NORMALE
                             if (doppiaBlack == false) {
                                 posizioni[aux1][aux2] = 'b';
-                            } else {
+                            }
+
+                            // SE LA PEDINA SPOSTATA E' UNA DAMA
+                            else {
                                 posizioni[aux1][aux2] = 'B';
                             }
                             JOptionPane.showMessageDialog(null, "Pedina riposizionata alla posizione iniziale", "MOSSA", JOptionPane.INFORMATION_MESSAGE);
@@ -452,8 +466,10 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             disp = false;
                         }
 
+                        // SE LA PEDINA VIENE SPOSTATA INDIETRO
                         else if ((i == aux1 - 1 && j == aux2 - 1) || (i == aux1 - 1 && j == aux2 + 1)) {
 
+                            // CONTROLLA SE NON E' UNA DAMA
                             if (doppiaBlack == false) {
                                 JOptionPane.showMessageDialog(null, "Tornare indietro non è permesso", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                                 posizioni[aux1][aux2] = 'b';
@@ -462,7 +478,10 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 disp = false;
                             }
 
+                            //ALTRIMENTI SE E' UNA DAMA
                             else {
+
+                                // CONTROLLA SE LA POSIZIONE SCELTA E' OCCUPATA
                                 if (posizioni[i][j] == 'w' || posizioni[i][j] == 'W') {
                                     JOptionPane.showMessageDialog(null, "Casella occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
                                     posizioni[aux1][aux2] = 'B';
@@ -470,7 +489,10 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = false;
                                     boardUpdate();
 
-                                } else if (posizioni[i][j] == '-') {
+                                }
+
+                                // CONTROLLA SE LA POSIZIONE E' LIBERA
+                                else if (posizioni[i][j] == '-') {
                                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW_Dama.png"));
                                     posizioni[i][j] = 'B';
                                     posizioni[aux1][aux2] = '-';
@@ -483,10 +505,14 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             }
                         }
 
+                        // SE VIENE SCELTA UNA POSIZIONE LIBERA
                         else if ((posizioni[i][j] == '-' && secondo == false)) {
 
+                            // CONTROLLA SE LO SPOSTAMENTO E' VALIDO
                             if (((i == aux1 + 1) && (j == aux2 + 1)) || ((i == aux1 + 1) && (j == aux2 - 1))) {
 
+                                // SE LO SPOSTAMENTO CADE SU UNA POSIZIONE AL BORDO AVVERSARIO (canDoubleBlack)
+                                // OPPURE SE LA PEDINA SPOSTATA E' GIA UNA DAMA
                                 if (canDoubleBlack(i, j) == true || doppiaBlack == true) {
                                     posizioni[i][j] = 'B';
                                     pulsanti[i][j].setIcon(new ImageIcon("IMG/ckW_Dama.png"));
@@ -504,17 +530,27 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                             }
 
+                            //////////////////////// MANGIATE /////////////////////////////
+
+                            // SE LA POSIZIONE SCELTA E' VERSO L'AVANTI A DESTRA DI 2 CIASCUNO
                             else if ((i == aux1 + 2) && (j == aux2 + 2)) {
 
+                                // SE LA POSIZIONE FRA QUELLA INIZIALE E QUELLA SCELTA HA UNA PEDINA AVVERSARIA AL SUO INTERNO
                                 if (posizioni[aux1 + 1][aux2 + 1] == 'w') {
 
+                                    // CONTROLLA SE LA PEDINA MOSSA NON E' DAMA
                                     if (doppiaBlack == false) {
                                         posizioni[aux1 + 2][aux2 + 2] = 'b';
+
+                                        // CONTROLLA SE LA MANGIATA CADE SUL BORDO NEMICO
                                         if (canDoubleBlack(i, j) == true) {
                                             posizioni[aux1 + 2][aux2 + 2] = 'B';
                                             doppiaBlack = true;
                                         }
-                                    } else {
+                                    }
+
+                                    //ALTRIMENTI SE E' DAMA
+                                    else {
                                         posizioni[aux1 + 2][aux2 + 2] = 'B';
                                     }
 
@@ -526,6 +562,8 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                                 }
 
+                                // CONTROLLA SE LA PEDINA FRA LA INIZIALE E LA SCELTA CONTIENE UNA DAMA
+                                // E SE LA PEDINA MOSSA E' UNA DAMA
                                 if(posizioni[aux1 + 1][aux2 + 1] == 'W' && doppiaBlack == true){
                                     posizioni[aux1 + 2][aux2 + 2] = 'B';
                                     posizioni[aux1 + 1][aux2 + 1] = '-';
@@ -535,6 +573,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
                                 }
                             }
+
 
                             else if ((i == aux1 + 2) && (j == aux2 - 2)) {
 
@@ -569,9 +608,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                 }
                             }
 
+                            // SE LA POSIZIONE SCELTA E' INDIETRO E A SINISTRA DI 2
+                            // E SE LA PEDINA SCELTA E' UNA DAMA (PERCHE E' L'UNICA CHE PUò EFFETTUARE LA MOSSA)
                             else if (((i == aux1 - 2) && (j == aux2 - 2)) && doppiaBlack == true) {
 
-                                if (posizioni[aux1 - 1][aux2 - 1] == 'w') {
+                                //  CONTROLLO SE LA PEDINA O DAMA IN MEZZO ALLE DUE POSIZIONI E' AVVERSARIA
+                                if (posizioni[aux1 - 1][aux2 - 1] == 'w' || posizioni[aux1 - 1][aux2 - 1] == 'W') {
 
                                     posizioni[i][j] = 'B';
 
@@ -583,21 +625,12 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
                                 }
 
-                                if(posizioni[aux1 - 1][aux2 - 1] == 'W'){
-                                    posizioni[aux1 - 2][aux2 - 2] = 'B';
-                                    posizioni[aux1 - 1][aux2 - 1] = '-';
-                                    pulsanti[aux1 - 1][aux2 - 1].setIcon(null);
-                                    boardUpdate();
-                                    resetBool();
-                                    disp = true;
-                                }
-
                             }
 
                             else if (((i == aux1 - 2) && (j == aux2 + 2))) {
 
 
-                                if (posizioni[aux1 - 1][aux2 + 1] == 'w') {
+                                if (posizioni[aux1 - 1][aux2 + 1] == 'w' || posizioni[aux1 - 1][aux2 + 1] == 'W') {
 
 
                                     posizioni[aux1 - 2][aux2 + 2] = 'B';
@@ -608,20 +641,13 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     resetBool();
                                     disp = true;
 
-                                }
-
-                                if(posizioni[aux1 - 1][aux2 + 1] == 'W'){
-                                    posizioni[aux1 - 2][aux2 + 2] = 'B';
-                                    posizioni[aux1 - 1][aux2 + 1] = '-';
-                                    pulsanti[aux1 - 1][aux2 + 1].setIcon(null);
-                                    boardUpdate();
-                                    resetBool();
-                                    disp = true;
                                 }
                             }
 
                         }
                     }
+
+                    // CONTROLLA SE LA POSIZIONE SCELTA E' OCCUPATA
                     else if (posizioni[i][j] == 'w') {
                         JOptionPane.showMessageDialog(null, "Casella già occupata", "MOSSA NON VALIDA", JOptionPane.INFORMATION_MESSAGE);
 
@@ -795,7 +821,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                             if (((i == aux1 + 2) && (j == aux2 + 2)) && doppiaWhite == true) {
 
 
-                                if (posizioni[aux1 + 1][aux2 + 1] == 'b') {
+                                if (posizioni[aux1 + 1][aux2 + 1] == 'b' || posizioni[aux1 + 1][aux2 + 1] == 'B') {
 
 
                                     posizioni[aux1 + 2][aux2 + 2] = 'W';
@@ -807,15 +833,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     resetBool();
                                     disp = true;
 
-                                }
-
-                                if(posizioni[aux1 + 1][aux2 + 1] == 'B'){
-                                    posizioni[aux1 + 2][aux2 + 2] = 'W';
-                                    posizioni[aux1 + 1][aux2 + 1] = '-';
-                                    pulsanti[aux1 + 1][aux2 + 1].setIcon(null);
-                                    boardUpdate();
-                                    resetBool();
-                                    disp = true;
                                 }
                             }
                         }
@@ -856,7 +873,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                         if (((i == aux1 + 2) && (j == aux2 - 2)) && doppiaWhite == true) {
 
 
-                                if (posizioni[aux1 + 1][aux2 - 1] == 'b') {
+                                if (posizioni[aux1 + 1][aux2 - 1] == 'b' || posizioni[aux1 + 1][aux2 - 1] == 'B') {
 
                                     posizioni[aux1 + 2][aux2 - 2] = 'W';
 
@@ -868,17 +885,6 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
                                     disp = true;
 
                                 }
-
-                            if(posizioni[aux1 + 1][aux2 - 1] == 'B'){
-                                posizioni[aux1 + 2][aux2 - 2] = 'W';
-                                posizioni[aux1 + 1][aux2 - 1] = '-';
-                                pulsanti[aux1 + 1][aux2 - 1].setIcon(null);
-                                boardUpdate();
-                                resetBool();
-                                disp = true;
-                            }
-
-
 
                         }
                         else if (posizioni[i][j] == 'b') {
@@ -1099,6 +1105,7 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
     }
 
 
+
     @Override
     public void windowOpened(WindowEvent e) {
         boolean g1 = true;
@@ -1163,5 +1170,3 @@ public class BoardGUI extends JPanel implements ActionListener, WindowListener {
 
     }
 }
-
-
